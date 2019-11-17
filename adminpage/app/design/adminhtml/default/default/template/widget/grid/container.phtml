@@ -1,0 +1,174 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+$url = $this->getUrl('*/*/csvs/r/');
+$module = Mage::app()->getRequest()->getModuleName();
+
+if($module=='withdrawhistory'){
+	?>
+	<form method='POST' action=''>
+	<fieldset style='border: 1px solid rgb(221, 219, 219);padding: 20px;margin-bottom: 10px;'>
+		<h3 style='font-weight:700;'>Export Withdraw</h3>
+		<br/>	
+		<?php
+		$codeq = mysql_query_cheat("SELECT * FROM tbl_withdraw_new_history GROUP by claimtype");
+		?>
+		Claim Type:
+		<select id='claimtypeselect' name='claimtypeselect'>
+		<?php
+			while($row=mysqli_fetch_array_cheat($codeq))
+			{
+				?>
+				<option value='<?php echo $row['claimtype'];?>'><?php echo $row['claimtype'];?></option>
+				<?php
+			}
+		?>
+		</select>		
+		<button type='button' value='Generate' onclick='exportW();'>Generate</button>
+	</fieldset>
+	</form>		
+	<script>
+		function exportW(varr){
+			var varr = document.getElementById('claimtypeselect').value;
+			window.location = '<?php echo $url; ?>r/'+varr;
+		}
+	</script>
+	<?php
+}
+
+
+if($module=='code')
+{
+	if($_GET['package']!='')
+	{
+				function RandomString()
+					{
+					    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+					    $randstring = '';
+					    for ($i = 0; $i <= 6; $i++) {
+					        $randstring .= $characters[rand(0, strlen($characters))]; 
+					    }
+						
+					    return $randstring;
+					}	
+
+
+												header('Content-Type: text/csv; charset=utf-8');
+							header('Content-Disposition: attachment; filename=codevalue'.rand().'.csv');
+							// create a file pointer connected to the output stream
+							$output = fopen('php://output', 'w');
+							#$rows = mysql_query_cheat("SELECT firstname,lastname,email,amount,bank_name,bank_accountnumber,bank_accountname FROM  tbl_withdraw_history as a JOIN tbl_accounts as b WHERE claim_status=0 AND a.accounts_id=b.accounts_id");
+							// output the column headings
+
+							fputcsv($output,array("Package Name","Code Pin","Code Value"));
+							// loop over the rows, outputting them
+							/*
+							code_value
+							code_pin
+							code_package
+							activated = 1
+							code_referrer = 0;
+							tbl_code
+							*/
+							$loop = $_GET['qty'];
+							$x = explode("@@@",$_GET['packages']);
+							$code_package = $x[0];
+							$code_name = $x[1];
+							$start = 0;
+							while($start<=$loop)
+							{
+								$start++;
+								$code_value = RandomString();
+								$code_pin = RandomString();
+
+							$query = "INSERT INTO tbl_code SET code_pin='$code_pin',code_package='$code_package',code_value='$code_value',activated='1'";
+
+								mysql_query_cheat($query);
+								fputcsv($output,array($code_name,$code_pin,$code_value));
+							}		
+	}
+	?>
+	<form method='POST' action=''>
+	<fieldset style='border: 1px solid rgb(221, 219, 219);padding: 20px;margin-bottom: 10px;'>
+		<h3 style='font-weight:700;'>Generate Bulk Code</h3>
+		<br/>
+		<?php
+		$codeq = mysql_query_cheat("SELECT rate_name,rate_id,rate_start FROM tbl_rate WHERE activated='1'");
+		?>
+		Package:
+		<select id='packagebulk' name='package'>
+		<?php
+			while($row=mysqli_fetch_array_cheat($codeq))
+			{
+				?>
+				<option value='<?php echo $row['rate_id'];?>@@@<?php echo $row['rate_name'];?>'><?php echo $row['rate_name'];?></option>
+				<?php
+			}
+		?>
+		</select>
+		&nbsp;
+		Qty: <select id='qtybulk' name='qty'>
+		<option value='10'>10</option>
+		<option value='25'>25</option>
+		<option value='50'>50</option>
+		<option value='100'>100</option>
+		</select>
+		<button type='button' value='Generate' onclick='generatebulk();'>Generate</button>
+	</fieldset>
+	</form>
+	<button type='button' value='Generate' onclick='alluserss();'>View Codes w/ users</button>
+	<button type='button' value='Generate' onclick='without();'>View Codes w/o users</button>
+	<script>
+	function generatebulk()
+	{
+		var packagess = document.getElementById('packagebulk').value;
+		var qtyyy = document.getElementById('qtybulk').value;
+		window.location = "<?php echo $this->getUrl('*/*/generatesss');?>?packages="+packagess+"&qty="+qtyyy;
+	}
+	function alluserss()
+	{
+		window.location = "<?php echo $this->getUrl('*/*/');?>?a=1";
+	}
+	function without()
+	{
+		window.location = "<?php echo $this->getUrl('*/*/');?>?a=2";
+	}	
+	</script>
+	<?php
+}
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td style="<?php echo $this->getHeaderWidth() ?>"><?php echo $this->getHeaderHtml() ?></td>
+            <td class="form-buttons"><?php echo $this->getButtonsHtml() ?></td>
+        </tr>
+    </table>
+</div>
+<div>
+    <?php echo $this->getGridHtml() ?>
+</div>

@@ -1,0 +1,71 @@
+<?php
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Academic Free License (AFL 3.0)
+ * that is bundled with this package in the file LICENSE_AFL.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/afl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magento.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magento.com for more information.
+ *
+ * @category    design
+ * @package     default_default
+ * @copyright   Copyright (c) 2006-2015 X.commerce, Inc. (http://www.magento.com)
+ * @license     http://opensource.org/licenses/afl-3.0.php  Academic Free License (AFL 3.0)
+ */
+?>
+<?php
+$q = mysql_query_cheat("SELECT COUNT(username) as total FROM tbl_accounts");
+$row = mysqli_fetch_array_cheat($q);
+
+$q2 = mysql_query_cheat("SELECT SUM(amount) as sum FROM tbl_withdraw_history");
+$row2 = mysqli_fetch_array_cheat($q2);
+
+$q3 = mysql_query_cheat("SELECT SUM(balance) as sum FROM tbl_accounts");
+$row3 = mysqli_fetch_array_cheat($q3);
+
+$q4 = mysql_query_cheat("SELECT SUM(b.rate_start) as sum FROM tbl_buycode_history as a JOIN tbl_rate as b WHERE a.package_id=b.rate_id;");
+$row4 = mysqli_fetch_array_cheat($q4);
+?>
+<div class="content-header">
+    <table cellspacing="0">
+        <tr>
+            <td><h3 class="head-dashboard"><?php echo $this->__('Dashboard') ?></h3></td>
+        </tr>
+    </table>
+</div>
+<div class="dashboard-container">
+    <table cellspacing="25" width="100%">
+        <tr>
+            <td>
+			
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Total Users') ?></h4></div>
+					<fieldset class="a-center bold">
+                    <span class="nowrap" style="font-size:18px;"><span class="price"><?php echo $row['total'];?></span><span style="font-size:14px; color:#686868;"></span></span>
+                    </fieldset>
+                </div>
+				
+                <div class="entry-edit">
+                    <div class="entry-edit-head"><h4><?php echo $this->__('Total Payout') ?></h4></div>
+                    <fieldset class="a-center bold">
+                    <span class="nowrap" style="font-size:18px;"><span class="price">&#8369;<?php echo number_format(($row2['sum'] + $row3['sum'] + $row4['sum']),2);?></span><span style="font-size:14px; color:#686868;"></span></span>
+                    </fieldset>
+                </div> 
+
+
+				
+            </td>
+        </tr>
+    </table>
+</div>

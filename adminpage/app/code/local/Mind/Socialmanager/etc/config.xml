@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Socialmanager
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Socialmanager>
+            <version>0.1.0</version>
+        </Mind_Socialmanager>
+    </modules>
+    <frontend>
+        <routers>
+            <socialmanager>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Socialmanager</module>
+                    <frontName>socialmanager</frontName>
+                </args>
+            </socialmanager>
+        </routers>
+        <layout>
+            <updates>
+                <socialmanager>
+                    <file>socialmanager.xml</file>
+                </socialmanager>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<socialmanager>
+				<use>admin</use>
+				<args>
+					<module>Mind_Socialmanager</module>
+					<frontName>socialmanager</frontName>
+				</args>
+			</socialmanager>
+        </routers>
+    </admin>
+    <adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Socialmanager>
+							<title>Socialmanager Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Socialmanager>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<socialmanager>
+					<file>socialmanager.xml</file>
+				</socialmanager>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <socialmanager>
+                <class>Mind_Socialmanager_Model</class>
+                <resourceModel>socialmanager_mysql4</resourceModel>
+            </socialmanager>
+            <socialmanager_mysql4>
+                <class>Mind_Socialmanager_Model_Mysql4</class>
+                <entities>
+                    <socialmanager>
+                        <table>socialmanager</table>
+                    </socialmanager>
+                </entities>
+            </socialmanager_mysql4>
+        </models>
+        <resources>
+            <socialmanager_setup>
+                <setup>
+                    <module>Mind_Socialmanager</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </socialmanager_setup>
+            <socialmanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </socialmanager_write>
+            <socialmanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </socialmanager_read>
+        </resources>
+        <blocks>
+            <socialmanager>
+                <class>Mind_Socialmanager_Block</class>
+            </socialmanager>
+        </blocks>
+        <helpers>
+            <socialmanager>
+                <class>Mind_Socialmanager_Helper</class>
+            </socialmanager>
+        </helpers>
+    </global>
+</config>

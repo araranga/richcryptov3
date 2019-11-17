@@ -1,0 +1,99 @@
+<?php
+
+class Mind_Rate_Block_Adminhtml_Rate_Edit_Tab_Form extends Mage_Adminhtml_Block_Widget_Form
+{
+  protected function _prepareForm()
+  {
+      $form = new Varien_Data_Form();
+      $this->setForm($form);
+      $fieldset = $form->addFieldset('rate_form', array('legend'=>Mage::helper('rate')->__('Item information')));
+     
+      $fieldset->addField('rate_name', 'text', array(
+          'label'     => Mage::helper('rate')->__('Title'),
+          'class'     => 'required-entry',
+          'required'  => true,
+          'name'      => 'rate_name',
+      ));
+      $fieldset->addField('rate_start', 'text', array(
+          'label'     => Mage::helper('rate')->__('Minimum Funding'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'rate_start',
+      ));
+
+      $fieldset->addField('rate_end', 'text', array(
+          'label'     => Mage::helper('rate')->__('Maximum Funding'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'rate_end',
+      ));
+
+
+      $fieldset->addField('days', 'text', array(
+          'label'     => Mage::helper('rate')->__('Funding maturity days'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'days',
+      ));
+
+
+      $fieldset->addField('maturity', 'text', array(
+          'label'     => Mage::helper('rate')->__('Percent of maturity'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'maturity',
+      ));
+
+
+      $fieldset->addField('content_data', 'editor', array(
+          'label'     => Mage::helper('rate')->__('Trading Courses'),
+          'class'     => 'required-entry',
+          'required'  => true,
+          'name'      => 'content_data',
+          'style'     => 'width:700px; height:500px;',
+          'wysiwyg'   => true,
+      ));
+
+
+      $fieldset->addField('activated', 'select', array(
+          'label'     => Mage::helper('rate')->__('Status'),
+          'name'      => 'activated',
+          'values'    => array(
+              array(
+                  'value'     => 1,
+                  'label'     => Mage::helper('rate')->__('Enabled'),
+              ),
+
+              array(
+                  'value'     => 2,
+                  'label'     => Mage::helper('rate')->__('Disabled'),
+              ),
+          ),
+      ));
+      $fieldset->addField('rate_bet', 'select', array(
+          'label'     => Mage::helper('rate')->__('Activated'),
+          'name'      => 'activated',
+          'values'    => array(
+              array(
+                  'value'     => 1,
+                  'label'     => Mage::helper('rate')->__('Yes'),
+              ),
+
+              array(
+                  'value'     => 2,
+                  'label'     => Mage::helper('rate')->__('No'),
+              ),
+          ),
+      ));
+          
+     
+      if ( Mage::getSingleton('adminhtml/session')->getRateData() )
+      {
+          $form->setValues(Mage::getSingleton('adminhtml/session')->getRateData());
+          Mage::getSingleton('adminhtml/session')->setRateData(null);
+      } elseif ( Mage::registry('rate_data') ) {
+          $form->setValues(Mage::registry('rate_data')->getData());
+      }
+      return parent::_prepareForm();
+  }
+}

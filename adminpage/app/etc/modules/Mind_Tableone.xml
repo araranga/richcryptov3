@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Tableone
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Tableone>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Mind_Tableone>
+    </modules>
+</config> 

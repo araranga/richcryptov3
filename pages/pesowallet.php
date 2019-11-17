@@ -1,0 +1,1 @@
+﻿<?phpinclude("../connect.php");$query = "SELECT * FROM tbl_cmsmanager WHERE id='38'";$q = mysql_query_cheat($query);$row = mysqli_fetch_array_cheat($q);?><h1><?php echo $row['cmsmanager_title']; ?></h1><?php echo $row['cmsmanager_content']; ?>

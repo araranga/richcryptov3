@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Tableone
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Tableone>
+            <version>0.1.0</version>
+        </Mind_Tableone>
+    </modules>
+    <frontend>
+        <routers>
+            <tableone>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Tableone</module>
+                    <frontName>tableone</frontName>
+                </args>
+            </tableone>
+        </routers>
+        <layout>
+            <updates>
+                <tableone>
+                    <file>tableone.xml</file>
+                </tableone>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<tableone>
+				<use>admin</use>
+				<args>
+					<module>Mind_Tableone</module>
+					<frontName>tableone</frontName>
+				</args>
+			</tableone>
+        </routers>
+    </admin>
+    <adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Tableone>
+							<title>Tableone Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Tableone>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<tableone>
+					<file>tableone.xml</file>
+				</tableone>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <tableone>
+                <class>Mind_Tableone_Model</class>
+                <resourceModel>tableone_mysql4</resourceModel>
+            </tableone>
+            <tableone_mysql4>
+                <class>Mind_Tableone_Model_Mysql4</class>
+                <entities>
+                    <tableone>
+                        <table>accounts</table>
+                    </tableone>
+                </entities>
+            </tableone_mysql4>
+        </models>
+        <resources>
+            <tableone_setup>
+                <setup>
+                    <module>Mind_Tableone</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </tableone_setup>
+            <tableone_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </tableone_write>
+            <tableone_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </tableone_read>
+        </resources>
+        <blocks>
+            <tableone>
+                <class>Mind_Tableone_Block</class>
+            </tableone>
+        </blocks>
+        <helpers>
+            <tableone>
+                <class>Mind_Tableone_Helper</class>
+            </tableone>
+        </helpers>
+    </global>
+</config>

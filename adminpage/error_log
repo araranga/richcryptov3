@@ -1,0 +1,144 @@
+[25-Jul-2015 00:41:49 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:41:49 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:41:49 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:42:12 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:42:12 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:42:12 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:42:19 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:42:19 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:42:19 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:26 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:26 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:26 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:26 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:26 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:26 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:34 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:34 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:34 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:34 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:34 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:43:34 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:04 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:04 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:04 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:04 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:04 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:04 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:39 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:39 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:39 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:40 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:40 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:40 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:43 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:43 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:43 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:43 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:43 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:43 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:45 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:45 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:44:45 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:45:08 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:45:08 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:45:08 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:45:08 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:45:08 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:45:08 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:36 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:36 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:36 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:37 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:37 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:37 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:57 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:57 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:57 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:58 UTC] PHP Warning:  simplexml_load_file(): Entity: line 46: parser error : Opening and ending tag mismatch: password line 45 and dbname in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:58 UTC] PHP Warning:  simplexml_load_file():                     &lt;dbname&gt;&lt;![CDATA[genesisl_mage122]]&gt;&lt;/dbname&gt; in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 00:46:58 UTC] PHP Warning:  simplexml_load_file():                                                                  ^ in /home/genesisl/public_html/adminpage/app/Mage.php on line 767
+[25-Jul-2015 09:07:34 Asia/Manila] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/genesisl/public_html/adminpage/index.php on line 28
+[25-Jul-2015 09:07:37 Asia/Manila] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/genesisl/public_html/adminpage/index.php on line 28
+[25-Jul-2015 01:11:15 UTC] PHP Fatal error:  Call to a member function extend() on a non-object in /home/genesisl/public_html/adminpage/lib/Varien/Simplexml/Config.php on line 600
+[25-Jul-2015 01:11:16 UTC] PHP Fatal error:  Call to a member function extend() on a non-object in /home/genesisl/public_html/adminpage/lib/Varien/Simplexml/Config.php on line 600
+[25-Jul-2015 01:11:17 UTC] PHP Fatal error:  Call to a member function extend() on a non-object in /home/genesisl/public_html/adminpage/lib/Varien/Simplexml/Config.php on line 600
+[25-Jul-2015 01:11:26 UTC] PHP Fatal error:  Call to a member function extend() on a non-object in /home/genesisl/public_html/adminpage/lib/Varien/Simplexml/Config.php on line 600
+[25-Jul-2015 01:29:38 UTC] PHP Fatal error:  Call to a member function extend() on a non-object in /home/genesisl/public_html/adminpage/lib/Varien/Simplexml/Config.php on line 600
+[27-Jul-2015 08:53:50 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[27-Jul-2015 08:56:07 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[27-Jul-2015 08:57:06 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[28-Jul-2015 01:09:27 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/genesisl/public_html/adminpage/app/code/local/Mind/Reward/Block/Tablerender.php on line 17
+[28-Jul-2015 01:09:36 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/genesisl/public_html/adminpage/app/code/local/Mind/Reward/Block/Tablerender.php on line 17
+[28-Jul-2015 01:09:51 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/genesisl/public_html/adminpage/app/code/local/Mind/Reward/Block/Tablerender.php on line 17
+[28-Jul-2015 01:24:40 UTC] PHP Fatal error:  Call to a member function getAccountsId() on a non-object in /home/genesisl/public_html/adminpage/app/code/local/Mind/Reward/Block/Tablerender.php on line 7
+[28-Jul-2015 01:30:22 UTC] PHP Fatal error:  Call to undefined method Mind_Reward_Model_Mysql4_Reward_Collection::addAttributeToFilter() in /home/genesisl/public_html/adminpage/app/code/local/Mind/Reward/Block/Adminhtml/Reward/Grid.php on line 16
+[31-Jul-2015 06:21:27 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[03-Aug-2015 15:18:36 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[06-Aug-2015 09:53:45 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[06-Aug-2015 09:54:42 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235
+[07-Aug-2015 07:32:18 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[HY000]: General error: 2006 MySQL server has gone away' in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php:228
+Stack trace:
+#0 /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php(228): PDOStatement->execute(Array)
+#1 /home/genesisl/public_html/adminpage/lib/Varien/Db/Statement/Pdo/Mysql.php(110): Zend_Db_Statement_Pdo->_execute(Array)
+#2 /home/genesisl/public_html/adminpage/app/code/core/Zend/Db/Statement.php(291): Varien_Db_Statement_Pdo_Mysql->_execute(Array)
+#3 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abstract.php(480): Zend_Db_Statement->execute(Array)
+#4 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Pdo/Abstract.php(238): Zend_Db_Adapter_Abstract->query('SELECT `tbl_cor...', Array)
+#5 /home/genesisl/public_html/adminpage/lib/Varien/Db/Adapter/Pdo/Mysql.php(504): Zend_Db_Adapter_Pdo_Abstract->query('SELECT `tbl_cor...', Array)
+#6 /home/genesisl/public_html/adminpage/lib/Zend/Db/Adapter/Abs in /home/genesisl/public_html/adminpage/lib/Zend/Db/Statement/Pdo.php on line 235

@@ -1,0 +1,488 @@
+@import "includes/variables";
+@import "includes/mixins";
+@import "includes/iconfonts";
+@import "includes/fonts";
+@import "includes/global";
+@import "includes/grid";
+@import "includes/layout";
+@import "includes/navigation";
+
+body {
+	background: lighten($gray200, 3%);
+}
+
+#dashboard-header {
+	background: $white;
+	@include boxshadow(1.5rem 0 2.5rem rgba($black, .1));
+}
+
+.logo {
+	display: block;
+	text-align: center;
+	padding:1rem;
+	img {width: 3rem;}
+@media (min-width: 1001px) {
+	padding:2rem;
+	img { width:20rem }
+}
+}
+
+.signinlogo {
+	width:24rem;
+	display: block;
+	margin:0 auto;
+}
+
+.login-widget {
+	max-width:65.2rem;
+	margin:0 auto;
+	padding:8rem 2rem 0;
+	background:url(../img/login-bg.png) no-repeat top center;
+
+	.npage-header {
+		border:0;
+		padding:0;
+		margin-bottom:3rem
+	}
+
+	.callout {
+		margin-bottom:2rem;
+		ul {
+			list-style: none;
+			margin:0;
+			padding:0;
+		}
+		&.callout-danger {
+			color:$red
+		}
+	}
+
+	.login-container {
+		@extend .boxin;
+		padding:3rem 1.5rem;
+		text-align: center;
+	}
+
+	.col {
+		padding-top:1rem;
+		padding-bottom:1rem;
+	}
+
+	input[type="text"], input[type="password"] { width:100%; text-align: center; padding:1.25rem; }
+
+	#test { display: flex; justify-content:center; margin-bottom:1.5rem; }
+
+	button[type="submit"] {
+		width: 100%;
+		padding:2.5rem 2rem 2rem;
+		font-size:1.6rem;
+	}
+
+	.forget-register {
+		display: block;
+		color:$gray300;
+		font-size:1.4rem;
+		margin-top:3rem;
+		i { margin:0 .75rem; font-style: normal }
+	}
+
+@media (min-width: 1001px) {
+	padding:8rem 7rem 0;
+	.login-container {
+		padding:5rem;
+	}
+	input[type="text"], input[type="password"] { padding:2rem; }
+}
+
+}
+
+.registration-widget {
+	background:url(../img/register-bg.png) no-repeat top left;
+	max-width:90rem;
+	margin:0 auto;
+	padding:12rem 2rem 0;
+
+	.registration-container {
+		@extend .boxin;
+		padding:3rem 1.5rem;
+	}
+
+	.npage-header {
+		text-align: center;
+		max-width:40rem;
+		margin:0 auto 3rem;
+		border:0;
+		padding:0;
+	}
+
+	.callout {
+		margin-bottom:2rem;
+		ul {
+			list-style: none;
+			margin:0;
+			padding:0;
+		}
+		&.callout-danger {
+			color:$red
+		}
+	}
+
+	.col-grp {
+		margin:0 -1.5rem;
+	}
+
+	.col {
+		padding:1rem 1.5rem;
+	}
+
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] { width:100%; padding:1.25rem; }
+
+	#test {
+		display: flex;
+		justify-content:center;
+	}
+
+	#agreement {
+		border:.1rem solid $gray200;
+		padding:1rem;
+		color:$gray500;
+	}
+
+	#registerbutton.action { display:none; text-align: center; input[type="submit"] { width:100% } }
+	.loginlink { text-align: center; }
+
+@media (min-width: 1001px) {
+	padding:12rem 9rem 0;
+	.registration-container { padding:5rem }
+	#registerbutton.action input[type="submit"] { width:30rem }
+	#agreement { padding:3rem }
+	input[type="text"],
+	input[type="email"],
+	input[type="password"] { padding:2rem }
+}
+
+}
+
+.announcements {
+	max-width:80rem;
+	margin:0 auto;
+
+	.announcement-item {
+		position: relative;
+		padding:3rem 0;
+		border-bottom:.1px solid $gray200;
+
+		.ai-photo {
+			display:block;
+			@extend .semisquarebox;
+			background: $gray200;
+			margin-bottom:3rem;
+		}
+
+		p { margin:0; }
+
+		&:first-child { min-height: 20.6rem;; padding-top:0; .ai-photo { top:0 } }
+
+	}
+
+@media (min-width: 768px) {
+	.announcement-item {
+		padding:5rem 0 5rem 29rem;
+		min-height: 25.6rem;
+		.ai-photo {
+			position: absolute;
+			left:0;
+			top:5rem;
+			width:24rem;
+			margin:0;
+		}
+	}
+}
+
+}
+
+.editprofile {
+	max-width: 80rem;
+}
+
+form.changepassword { 
+	max-width: 50rem; 
+	.action input[type="submit"] { width:100% } 
+}
+
+.referral-link {
+	margin-bottom:3rem;
+	.amount-box-list span { font-size:1.5rem; line-height: 1.5rem; em { margin-bottom:.65rem }}
+@media (min-width: 1001px) {
+	.amount-box-list span { font-size:1.8rem; line-height: 1.8rem; }
+}
+}
+
+.amount-box.total-withdrawals {
+@media (max-width: 1000px) {
+	margin-top:3rem;
+}
+}
+
+.security-setting-list {
+	list-style: none;
+	margin:-5rem 0 0;
+	padding:0;
+
+	li {
+		position: relative;
+		padding:3rem 0;
+		border-bottom:.1rem solid $gray200;
+	}
+
+	h5 {
+		margin:0 0 .5rem;
+	}
+
+	p {
+		margin:0;
+	}
+
+	.action { margin-top:3rem; .nbtn { width:100%; } }
+
+@media (min-width: 1001px) {
+	li {
+		padding:3rem 22rem 3rem 0;
+	}
+
+	.action {
+		margin:0;
+		position: absolute;
+		right:0;
+		top:3rem;
+		width:20rem;
+	}
+}
+
+}
+
+form.code-activation {
+	max-width:50rem;
+	.npage-header {
+		text-align: center;
+		padding-bottom:0;
+		border:0;
+	}
+	input[type="codes"] { text-align: center; }  
+	.action {
+		margin-top:0; 
+		input[type="submit"].nbtn {
+			width:100%;
+		}
+	}
+}
+
+.course-list {
+	margin-bottom:5rem;
+
+	.course {
+
+		&.course-Beginner {
+
+			h3 { background: $green }
+			span.maximum strong { color: $green } 
+
+		}
+
+		&.course-Intermediate {
+
+			h3 { background: $orange }
+			span.maximum strong { color: $orange }
+
+		@media (max-width: 1000px) {
+			margin:3rem 0;
+		} 
+
+		}
+
+		&.course-Advance {
+
+			h3 { background: $red }
+			span.maximum strong { color: $red } 
+
+		}
+
+	}
+
+	.course div {
+		@extend .boxin;
+		text-align: center;
+		font-size:1.8rem;
+
+		h3, p {
+			margin:0;
+		}
+
+		h3 {
+			@include borderradius(1rem 1rem 0 0);
+			padding:2.5rem 1.5rem;
+			color:$white;
+		}
+
+		p { padding:1rem 1.5rem 2rem; }
+
+		i { font-style: normal; display: block; }
+
+		span {
+			display: block;
+			&:nth-child(2) { margin:2rem 0; }
+			line-height: 2.6rem;
+			&.minimum strong { font-size:2.6rem; }
+			&.maximum {
+				line-height: 3.6rem;
+				i { text-transform: uppercase; }
+				strong { font-size:3.6rem } 
+			}
+			&.bonus-rate strong { font-size:2.4rem; font-weight: 700 }
+		}
+
+	@media (min-width: 1001px) {
+		p { padding:3rem 3rem 4rem; }
+	} 
+
+	}
+
+}
+
+.col.purchase {
+	.col.terms {
+		position: relative;
+		padding-left:4rem;
+		input[type="checkbox"] {
+			width: auto;
+			border-color:$gray300;
+			position: absolute;
+			top:1.5rem;
+			left:1.5rem;
+			margin:0;
+		}
+	}
+@media (max-width: 1000px) {
+	margin-top:3rem;
+}
+}
+
+#agreement {
+	display:none;
+	div {
+		border:.1rem solid $gray200;
+		padding:3rem;
+		color:$gray400;
+	}
+	
+	p {
+		font-size:1.2rem;
+		margin:0 0 1.3rem;
+		br { display: none }
+		&:last-child { margin-bottom:0; }
+	}
+}
+
+#registerbutton.action { 
+	display:none; 
+	padding-top:0; 
+	padding-bottom:0; 
+	margin-top:2rem; 
+	text-align: left;
+@media (max-width: 1000px) {
+	.nbtn { width:100% }
+}
+}
+
+form.transaction {
+	max-width:50rem;
+	.action input[type="submit"] { width:100%; }
+}
+
+form.withdrawal,
+form.dollartoewallet,
+form.fundtransfer {
+	max-width: 60rem;
+	.npage-header {
+		text-align: center;
+		padding:0;
+		border:0;
+	}
+	.amount-box { 
+		margin-bottom:4rem; 
+		.amount-box-list {@include boxshadow(none); border:.1rem solid $gray200; }
+	}
+	.action input[type="submit"] { width:100%; }
+}
+
+.coversion-rate {
+	background: lighten($blue, 25%);
+	text-align: center;
+	margin-bottom:3rem;
+	@include borderradius(1rem);
+	padding:2rem;
+	h6 {
+		text-transform: uppercase;
+		font-family: $textfont;
+		margin:0;
+		letter-spacing: .1rem;
+	}
+	p {
+		margin:0;
+		font-weight: 700;
+	}
+@media (min-width: 1001px) {
+	padding:3rem;
+	h6 { font-size:1.8rem; }
+	p { font-size: 3rem; }
+}
+}
+
+.col.convert-form-wrap {
+@media (max-width: 1000px) {
+	margin-top:3rem;
+}
+}
+
+form.convert-currency-form {
+	.action {  margin-top:0; }
+
+	input[readonly="readonly"] {
+		background: lighten($gray200, 5%);
+		color:darken($gray300, 15%);
+	}
+@media (max-width: 1000px) {
+	.action {
+		a { display:block; width:100%; text-align:center; margin-top:2rem }
+		input[type="submit"] {
+			width:100%
+		}
+	}
+}
+@media (min-width: 1001px) {
+	.action {
+		display: flex;
+		align-items:center; 
+		justify-content:space-between;
+		.nbtn { order:2 }
+	}
+}
+}
+
+form.dollartoewallet {
+	.npage-header { text-align: left }
+	input#pesos_value { text-align: center; }
+}
+
+form.forgotpassword {
+	max-width:50rem;
+	.npage-header { border:0; padding:0; text-align: center;}
+	.col.action {
+		margin-top:0;
+		display: flex;
+		justify-content:space-between;
+		align-items:center;
+	}
+}

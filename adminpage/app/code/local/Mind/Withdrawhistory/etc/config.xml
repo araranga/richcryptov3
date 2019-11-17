@@ -1,0 +1,128 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Withdrawhistory
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Withdrawhistory>
+            <version>0.1.0</version>
+        </Mind_Withdrawhistory>
+    </modules>
+    <frontend>
+        <routers>
+            <withdrawhistory>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Withdrawhistory</module>
+                    <frontName>withdrawhistory</frontName>
+                </args>
+            </withdrawhistory>
+        </routers>
+        <layout>
+            <updates>
+                <withdrawhistory>
+                    <file>withdrawhistory.xml</file>
+                </withdrawhistory>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<withdrawhistory>
+				<use>admin</use>
+				<args>
+					<module>Mind_Withdrawhistory</module>
+					<frontName>withdrawhistory</frontName>
+				</args>
+			</withdrawhistory>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<withdrawhistory module="withdrawhistory">
+				<title>Payouts</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="withdrawhistory">
+						<title>Withdraw List</title>
+						<sort_order>1</sort_order>
+						<action>withdrawhistory/adminhtml_withdrawhistory</action>
+					</items>					
+				</children>
+			</withdrawhistory>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Withdrawhistory>
+							<title>Withdrawhistory Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Withdrawhistory>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<withdrawhistory>
+					<file>withdrawhistory.xml</file>
+				</withdrawhistory>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <withdrawhistory>
+                <class>Mind_Withdrawhistory_Model</class>
+                <resourceModel>withdrawhistory_mysql4</resourceModel>
+            </withdrawhistory>
+            <withdrawhistory_mysql4>
+                <class>Mind_Withdrawhistory_Model_Mysql4</class>
+                <entities>
+                    <withdrawhistory>
+                        <table>withdraw_new_history</table>
+                    </withdrawhistory>
+                </entities>
+            </withdrawhistory_mysql4>
+        </models>
+        <resources>
+            <withdrawhistory_setup>
+                <setup>
+                    <module>Mind_Withdrawhistory</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </withdrawhistory_setup>
+            <withdrawhistory_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </withdrawhistory_write>
+            <withdrawhistory_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </withdrawhistory_read>
+        </resources>
+        <blocks>
+            <withdrawhistory>
+                <class>Mind_Withdrawhistory_Block</class>
+            </withdrawhistory>
+        </blocks>
+        <helpers>
+            <withdrawhistory>
+                <class>Mind_Withdrawhistory_Helper</class>
+            </withdrawhistory>
+        </helpers>
+    </global>
+</config>

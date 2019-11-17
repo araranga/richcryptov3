@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Accounts
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Accounts>
+            <version>0.1.0</version>
+        </Mind_Accounts>
+    </modules>
+    <frontend>
+        <routers>
+            <accounts>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Accounts</module>
+                    <frontName>accounts</frontName>
+                </args>
+            </accounts>
+        </routers>
+        <layout>
+            <updates>
+                <accounts>
+                    <file>accounts.xml</file>
+                </accounts>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<accounts>
+				<use>admin</use>
+				<args>
+					<module>Mind_Accounts</module>
+					<frontName>accounts</frontName>
+				</args>
+			</accounts>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<accounts module="accounts">
+				<title>Accounts</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="accounts">
+						<title>Customer Accounts</title>
+						<sort_order>0</sort_order>
+						<action>accounts/adminhtml_accounts</action>
+					</items>
+                    <itemsa module="accounts">
+                        <title>Admin Accounts</title>
+                        <sort_order>0</sort_order>
+                        <action>adminhtml/permissions_user</action>
+                    </itemsa>                    
+				</children>
+			</accounts>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Accounts>
+							<title>Accounts Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Accounts>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<accounts>
+					<file>accounts.xml</file>
+				</accounts>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <accounts>
+                <class>Mind_Accounts_Model</class>
+                <resourceModel>accounts_mysql4</resourceModel>
+            </accounts>
+            <accounts_mysql4>
+                <class>Mind_Accounts_Model_Mysql4</class>
+                <entities>
+                    <accounts>
+                        <table>accounts</table>
+                    </accounts>
+                </entities>
+            </accounts_mysql4>
+        </models>
+        <resources>
+            <accounts_setup>
+                <setup>
+                    <module>Mind_Accounts</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </accounts_setup>
+            <accounts_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </accounts_write>
+            <accounts_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </accounts_read>
+        </resources>
+        <blocks>
+            <accounts>
+                <class>Mind_Accounts_Block</class>
+            </accounts>
+        </blocks>
+        <helpers>
+            <accounts>
+                <class>Mind_Accounts_Helper</class>
+            </accounts>
+        </helpers>
+    </global>
+</config>

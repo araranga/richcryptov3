@@ -1,0 +1,95 @@
+@mixin boxshadow ($bs) {
+    box-shadow: $bs;
+    -moz-box-shadow: $bs;
+    -webkit-box-shadow: $bs;
+}
+
+@mixin borderradius($br) {
+    border-radius:$br;
+    -moz-border-radius:$br;
+    -webkit-border-radius:$br;
+}
+
+@mixin bgsizecover {
+    background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-position: cover;
+}
+
+@mixin vertalignmidhoralignleft {
+    flex:1 0 0;
+    -webkit-flex:1;
+    -ms-flex:1 0 0;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -webkit-justify-content: center; /* Safari 6.1+ */
+    justify-content: center;
+    -ms-flex-align: center;
+    -webkit-align-items:  center;
+    align-items:  center;
+    -webkit-box-align: center;
+}
+
+@mixin transition($trans) {
+    transition:$trans;
+    -moz-transition:$trans;
+    -webkit-transition:$trans;
+}
+
+@mixin rotate($deg) {
+    ms-transform: rotate($deg);
+    -webkit-transform: rotate($deg);
+    transform: rotate($deg);
+}
+
+@mixin grayscale_element($value) {
+    -webkit-filter: #{"grayscale(#{$value})"};
+    -moz-filter: #{"grayscale(#{$value})"};
+    filter:#{"grayscale(#{$value})"};
+}
+
+@mixin calc($property, $expression) {
+    #{$property}: -moz-calc(#{$expression});
+    #{$property}: -webkit-calc(#{$expression});
+    #{$property}: calc(#{$expression});
+}
+
+@mixin btnoutlined($color) {
+    border-color:$color;
+    color:$color;
+
+    &:hover {
+        background-color:$color;
+    }
+
+    &:not(:disabled):not(.disabled).active, 
+    &:not(:disabled):not(.disabled):active, 
+    &.dropdown-toggle {
+        border-color:darken($color, 20);;
+    }
+}
+
+.squarebox,
+.semisquarebox,
+.rectanglebox {
+    position: relative;
+    overflow: hidden;
+    &:before {
+        content: "";
+        display: block;
+    }
+}
+.squarebox:before { padding-top: 100%; }
+.semisquarebox:before { padding-top: 65%; }
+.rectanglebox:before { padding-top:50%; }
+
+.boxin {
+    background: $white;
+    @include borderradius(1rem);
+    @include boxshadow(0 0 5rem rgba($black, .1));
+}

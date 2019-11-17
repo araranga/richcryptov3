@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Code
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Code>
+            <version>0.1.0</version>
+        </Mind_Code>
+    </modules>
+    <frontend>
+        <routers>
+            <code>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Code</module>
+                    <frontName>code</frontName>
+                </args>
+            </code>
+        </routers>
+        <layout>
+            <updates>
+                <code>
+                    <file>code.xml</file>
+                </code>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<code>
+				<use>admin</use>
+				<args>
+					<module>Mind_Code</module>
+					<frontName>code</frontName>
+				</args>
+			</code>
+        </routers>
+    </admin>
+    <adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Code>
+							<title>Code Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Code>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<code>
+					<file>code.xml</file>
+				</code>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <code>
+                <class>Mind_Code_Model</class>
+                <resourceModel>code_mysql4</resourceModel>
+            </code>
+            <code_mysql4>
+                <class>Mind_Code_Model_Mysql4</class>
+                <entities>
+                    <code>
+                        <table>code</table>
+                    </code>
+                </entities>
+            </code_mysql4>
+        </models>
+        <resources>
+            <code_setup>
+                <setup>
+                    <module>Mind_Code</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </code_setup>
+            <code_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </code_write>
+            <code_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </code_read>
+        </resources>
+        <blocks>
+            <code>
+                <class>Mind_Code_Block</class>
+            </code>
+        </blocks>
+        <helpers>
+            <code>
+                <class>Mind_Code_Helper</class>
+            </code>
+        </helpers>
+    </global>
+</config>

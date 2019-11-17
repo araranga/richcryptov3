@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Exitbonusmanager
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Exitbonusmanager>
+            <version>0.1.0</version>
+        </Mind_Exitbonusmanager>
+    </modules>
+    <frontend>
+        <routers>
+            <exitbonusmanager>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Exitbonusmanager</module>
+                    <frontName>exitbonusmanager</frontName>
+                </args>
+            </exitbonusmanager>
+        </routers>
+        <layout>
+            <updates>
+                <exitbonusmanager>
+                    <file>exitbonusmanager.xml</file>
+                </exitbonusmanager>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<exitbonusmanager>
+				<use>admin</use>
+				<args>
+					<module>Mind_Exitbonusmanager</module>
+					<frontName>exitbonusmanager</frontName>
+				</args>
+			</exitbonusmanager>
+        </routers>
+    </admin>
+    <adminhtml>
+
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Exitbonusmanager>
+							<title>Exitbonusmanager Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Exitbonusmanager>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<exitbonusmanager>
+					<file>exitbonusmanager.xml</file>
+				</exitbonusmanager>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <exitbonusmanager>
+                <class>Mind_Exitbonusmanager_Model</class>
+                <resourceModel>exitbonusmanager_mysql4</resourceModel>
+            </exitbonusmanager>
+            <exitbonusmanager_mysql4>
+                <class>Mind_Exitbonusmanager_Model_Mysql4</class>
+                <entities>
+                    <exitbonusmanager>
+                        <table>exitbonusmanager</table>
+                    </exitbonusmanager>
+                </entities>
+            </exitbonusmanager_mysql4>
+        </models>
+        <resources>
+            <exitbonusmanager_setup>
+                <setup>
+                    <module>Mind_Exitbonusmanager</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </exitbonusmanager_setup>
+            <exitbonusmanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </exitbonusmanager_write>
+            <exitbonusmanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </exitbonusmanager_read>
+        </resources>
+        <blocks>
+            <exitbonusmanager>
+                <class>Mind_Exitbonusmanager_Block</class>
+            </exitbonusmanager>
+        </blocks>
+        <helpers>
+            <exitbonusmanager>
+                <class>Mind_Exitbonusmanager_Helper</class>
+            </exitbonusmanager>
+        </helpers>
+    </global>
+</config>

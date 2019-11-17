@@ -1,0 +1,115 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Forummanager
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Forummanager>
+            <version>0.1.0</version>
+        </Mind_Forummanager>
+    </modules>
+    <frontend>
+        <routers>
+            <forummanager>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Forummanager</module>
+                    <frontName>forummanager</frontName>
+                </args>
+            </forummanager>
+        </routers>
+        <layout>
+            <updates>
+                <forummanager>
+                    <file>forummanager.xml</file>
+                </forummanager>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<forummanager>
+				<use>admin</use>
+				<args>
+					<module>Mind_Forummanager</module>
+					<frontName>forummanager</frontName>
+				</args>
+			</forummanager>
+        </routers>
+    </admin>
+    <adminhtml>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Forummanager>
+							<title>Forummanager Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Forummanager>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<forummanager>
+					<file>forummanager.xml</file>
+				</forummanager>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <forummanager>
+                <class>Mind_Forummanager_Model</class>
+                <resourceModel>forummanager_mysql4</resourceModel>
+            </forummanager>
+            <forummanager_mysql4>
+                <class>Mind_Forummanager_Model_Mysql4</class>
+                <entities>
+                    <forummanager>
+                        <table>forummanager</table>
+                    </forummanager>
+                </entities>
+            </forummanager_mysql4>
+        </models>
+        <resources>
+            <forummanager_setup>
+                <setup>
+                    <module>Mind_Forummanager</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </forummanager_setup>
+            <forummanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </forummanager_write>
+            <forummanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </forummanager_read>
+        </resources>
+        <blocks>
+            <forummanager>
+                <class>Mind_Forummanager_Block</class>
+            </forummanager>
+        </blocks>
+        <helpers>
+            <forummanager>
+                <class>Mind_Forummanager_Helper</class>
+            </forummanager>
+        </helpers>
+    </global>
+</config>

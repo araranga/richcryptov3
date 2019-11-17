@@ -1,0 +1,138 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Cmsmanager
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Cmsmanager>
+            <version>0.1.0</version>
+        </Mind_Cmsmanager>
+    </modules>
+    <frontend>
+        <routers>
+            <cmsmanager>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Cmsmanager</module>
+                    <frontName>cmsmanager</frontName>
+                </args>
+            </cmsmanager>
+        </routers>
+        <layout>
+            <updates>
+                <cmsmanager>
+                    <file>cmsmanager.xml</file>
+                </cmsmanager>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<cmsmanager>
+				<use>admin</use>
+				<args>
+					<module>Mind_Cmsmanager</module>
+					<frontName>cmsmanager</frontName>
+				</args>
+			</cmsmanager>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<cmsmanager module="cmsmanager">
+				<title>Web Settings</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<aaa module="cmsmanager">
+						<title>Static Pages</title>
+						<sort_order>0</sort_order>
+						<action>cmsmanager/adminhtml_cmsmanager</action>
+					</aaa>
+                    <bbb module="bannermanager">
+                        <title>News and Events</title>
+                        <sort_order>0</sort_order>
+                        <action>bannermanager/adminhtml_bannermanager</action>
+                    </bbb> 
+                    <ccc module="bannermanager">
+                        <title>Testimonials</title>
+                        <sort_order>0</sort_order>
+                        <action>logo/adminhtml_logo/</action>
+                    </ccc>                     
+				</children>
+			</cmsmanager>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Cmsmanager>
+							<title>Cmsmanager Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Cmsmanager>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<cmsmanager>
+					<file>cmsmanager.xml</file>
+				</cmsmanager>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <cmsmanager>
+                <class>Mind_Cmsmanager_Model</class>
+                <resourceModel>cmsmanager_mysql4</resourceModel>
+            </cmsmanager>
+            <cmsmanager_mysql4>
+                <class>Mind_Cmsmanager_Model_Mysql4</class>
+                <entities>
+                    <cmsmanager>
+                        <table>cmsmanager</table>
+                    </cmsmanager>
+                </entities>
+            </cmsmanager_mysql4>
+        </models>
+        <resources>
+            <cmsmanager_setup>
+                <setup>
+                    <module>Mind_Cmsmanager</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </cmsmanager_setup>
+            <cmsmanager_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </cmsmanager_write>
+            <cmsmanager_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </cmsmanager_read>
+        </resources>
+        <blocks>
+            <cmsmanager>
+                <class>Mind_Cmsmanager_Block</class>
+            </cmsmanager>
+        </blocks>
+        <helpers>
+            <cmsmanager>
+                <class>Mind_Cmsmanager_Helper</class>
+            </cmsmanager>
+        </helpers>
+    </global>
+</config>

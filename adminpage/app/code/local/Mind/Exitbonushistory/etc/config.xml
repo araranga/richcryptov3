@@ -1,0 +1,116 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Exitbonushistory
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Exitbonushistory>
+            <version>0.1.0</version>
+        </Mind_Exitbonushistory>
+    </modules>
+    <frontend>
+        <routers>
+            <exitbonushistory>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Exitbonushistory</module>
+                    <frontName>exitbonushistory</frontName>
+                </args>
+            </exitbonushistory>
+        </routers>
+        <layout>
+            <updates>
+                <exitbonushistory>
+                    <file>exitbonushistory.xml</file>
+                </exitbonushistory>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<exitbonushistory>
+				<use>admin</use>
+				<args>
+					<module>Mind_Exitbonushistory</module>
+					<frontName>exitbonushistory</frontName>
+				</args>
+			</exitbonushistory>
+        </routers>
+    </admin>
+    <adminhtml>
+
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Exitbonushistory>
+							<title>Exitbonushistory Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Exitbonushistory>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<exitbonushistory>
+					<file>exitbonushistory.xml</file>
+				</exitbonushistory>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <exitbonushistory>
+                <class>Mind_Exitbonushistory_Model</class>
+                <resourceModel>exitbonushistory_mysql4</resourceModel>
+            </exitbonushistory>
+            <exitbonushistory_mysql4>
+                <class>Mind_Exitbonushistory_Model_Mysql4</class>
+                <entities>
+                    <exitbonushistory>
+                        <table>buycode_history</table>
+                    </exitbonushistory>
+                </entities>
+            </exitbonushistory_mysql4>
+        </models>
+        <resources>
+            <exitbonushistory_setup>
+                <setup>
+                    <module>Mind_Exitbonushistory</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </exitbonushistory_setup>
+            <exitbonushistory_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </exitbonushistory_write>
+            <exitbonushistory_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </exitbonushistory_read>
+        </resources>
+        <blocks>
+            <exitbonushistory>
+                <class>Mind_Exitbonushistory_Block</class>
+            </exitbonushistory>
+        </blocks>
+        <helpers>
+            <exitbonushistory>
+                <class>Mind_Exitbonushistory_Helper</class>
+            </exitbonushistory>
+        </helpers>
+    </global>
+</config>

@@ -1,0 +1,133 @@
+<?xml version="1.0"?>
+<!-- 
+/**
+ * @category   Mind
+ * @package    Mind_Rate
+ * @author     ModuleCreator
+ * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ */
+ -->
+<config>
+    <modules>
+        <Mind_Rate>
+            <version>0.1.0</version>
+        </Mind_Rate>
+    </modules>
+    <frontend>
+        <routers>
+            <rate>
+                <use>standard</use>
+                <args>
+                    <module>Mind_Rate</module>
+                    <frontName>rate</frontName>
+                </args>
+            </rate>
+        </routers>
+        <layout>
+            <updates>
+                <rate>
+                    <file>rate.xml</file>
+                </rate>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+			<rate>
+				<use>admin</use>
+				<args>
+					<module>Mind_Rate</module>
+					<frontName>rate</frontName>
+				</args>
+			</rate>
+        </routers>
+    </admin>
+    <adminhtml>
+		<menu>
+			<rate module="rate">
+				<title>Rate and Code</title>
+				<sort_order>71</sort_order>               
+				<children>
+					<items module="rate">
+						<title>Rate Listing</title>
+						<sort_order>0</sort_order>
+						<action>rate/adminhtml_rate</action>
+					</items>
+                    <items2 module="exitbonushistory">
+                        <title>Fund Listing</title>
+                        <sort_order>1</sort_order>
+                        <action>exitbonushistory/adminhtml_exitbonushistory</action>
+                    </items2>       					
+				</children>
+			</rate>
+		</menu>
+		<acl>
+			<resources>
+				<all>
+					<title>Allow Everything</title>
+				</all>
+				<admin>
+					<children>
+						<Mind_Rate>
+							<title>Rate Module</title>
+							<sort_order>10</sort_order>
+						</Mind_Rate>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<layout>
+			<updates>
+				<rate>
+					<file>rate.xml</file>
+				</rate>
+			</updates>
+		</layout>
+    </adminhtml>   
+    <global>
+        <models>
+            <rate>
+                <class>Mind_Rate_Model</class>
+                <resourceModel>rate_mysql4</resourceModel>
+            </rate>
+            <rate_mysql4>
+                <class>Mind_Rate_Model_Mysql4</class>
+                <entities>
+                    <rate>
+                        <table>rate</table>
+                    </rate>
+                </entities>
+            </rate_mysql4>
+        </models>
+        <resources>
+            <rate_setup>
+                <setup>
+                    <module>Mind_Rate</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </rate_setup>
+            <rate_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </rate_write>
+            <rate_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </rate_read>
+        </resources>
+        <blocks>
+            <rate>
+                <class>Mind_Rate_Block</class>
+            </rate>
+        </blocks>
+        <helpers>
+            <rate>
+                <class>Mind_Rate_Helper</class>
+            </rate>
+        </helpers>
+    </global>
+</config>
