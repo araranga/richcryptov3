@@ -35,16 +35,8 @@ if($row[''])
 			<h3>Balance</h3>
 			<ul class="amount-box-list balances">
 				<li>
-					<i class="icon-bitcoin"></i>
-					<span><em>Bitcoin</em> <?php echo number_format($row['balance'],7); ?></span>
-				</li>
-				<li>
 					<i class="icon-dollar"></i>
-					<span><em>Dollar</em> <?php echo number_format($row['balance_pesos'],2); ?></span>
-				</li>
-				<li>
-					<i class="icon-wallet"></i>
-					<span><em>E-Wallet</em> <?php echo number_format($row['balance_wallet'],2); ?></span>
+					<span><em>Pesos</em> <?php echo number_format($row['balance_pesos'],2); ?></span>
 				</li>
 			</ul>
 		</div>
@@ -53,11 +45,11 @@ if($row[''])
 	<div class="col col-6">
 		
 		<div class="amount-box total-withdrawals">
-			<h3>Total Bitcoin Withdrawals</h3>
+			<h3>Total Withdrawals</h3>
 			<ul class="amount-box-list withdrawals">
 				<li>
-					<i class="icon-bitcoin"></i>
-					<span><em>Bitcoin</em> <?php echo number_format($row3['sum'],7); ?></span>
+					<i class="icon-dollar"></i>
+					<span><em>Pesos</em> <?php echo number_format($row3['sum'],7); ?></span>
 				</li>
 			</ul>
 		</div>
@@ -67,7 +59,7 @@ if($row[''])
 			<ul class="amount-box-list withdrawals">
 				<li>
 					<i class="icon-dollar"></i>
-					<span><em>Dollar</em> <?php echo number_format($row4['sum'],2); ?></span>
+					<span><em>Pesos</em> <?php echo number_format($row4['sum'],2); ?></span>
 				</li>
 			</ul>
 		</div>

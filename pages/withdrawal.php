@@ -15,7 +15,7 @@ function trans()
 
 	if($_POST['submit']!='')
 	{
-		$balance_id = "balance";
+		$balance_id = "balance_pesos";
 
 		if($_POST['claimtype']=='bank'){
 			$balance_id = "balance_pesos";
@@ -31,7 +31,7 @@ function trans()
 		}
 		if($_POST['withdraw']>$row[$balance_id]) 
 		{
-			$error .= "<i class=\"fa fa-warning\"></i>Amount to withdraw(".$_POST['withdraw'].") is insufficient on current balance(".$row['balance']."). Please input valid amount.<br>";
+			$error .= "<i class=\"fa fa-warning\"></i>Amount to withdraw(".$_POST['withdraw'].") is insufficient on current balance(".$row['balance_pesos']."). Please input valid amount.<br>";
 		}
 		
 		if($error=='')
@@ -93,7 +93,7 @@ $fields = array();
 $fields['fullname'] = "Fullname";
 $fields['address'] = "Address";
 $fields['mobile'] = "Mobile";
-$payment['lbc'] = $fields;	
+$payment['cheque'] = $fields;	
 //BPI
 $fields = array();
 $fields['fullname'] = "Fullname";
@@ -140,8 +140,8 @@ $payment['btc'] = $fields;
 	<div class="amount-box user-balance">
 		<ul class="amount-box-list">
 			<li>
-				<i class="icon-bitcoin"></i>
-				<span><em>Bitcoin</em> <?php echo $row['balance'];?></span>
+				<i class="icon-dollar"></i>
+				<span><em>Pesos</em> <?php echo $row['balance_pesos'];?></span>
 			</li>
 		</ul>
 	</div>
@@ -150,7 +150,7 @@ $payment['btc'] = $fields;
 		<div class="col col-12">
 			<select id='claimtypeid' name='claimtype' onchange="widraw(this.value)" required>
 				<!-- <option value='bank'>Bank Deposit</option> -->
-				<option value='btc' selected='selected'>BTC</option>
+				<option value='cheque' selected='selected'>Cheque</option>
 			</select>
 		</div>
 		<div class="col col-12"><div id='optionspayment'></div></div>

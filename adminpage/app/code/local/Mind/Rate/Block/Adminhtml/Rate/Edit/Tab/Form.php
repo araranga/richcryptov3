@@ -37,12 +37,29 @@ class Mind_Rate_Block_Adminhtml_Rate_Edit_Tab_Form extends Mage_Adminhtml_Block_
       ));
 
 
-      $fieldset->addField('maturity', 'text', array(
-          'label'     => Mage::helper('rate')->__('Percent of maturity'),
+      $fieldset->addField('cycle1', 'text', array(
+          'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 1)'),
           'class'     => 'required-entry validate-number',
           'required'  => true,
-          'name'      => 'maturity',
+          'name'      => 'cycle1',
       ));
+
+      $fieldset->addField('cycle2', 'text', array(
+          'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 2)'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'cycle2',
+      ));
+
+
+
+      $fieldset->addField('cycle3', 'text', array(
+          'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 3)'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'cycle3',
+      ));
+
 
 
       $fieldset->addField('content_data', 'editor', array(

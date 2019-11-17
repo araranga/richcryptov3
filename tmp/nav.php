@@ -48,14 +48,6 @@
 					<?php } ?>
 					</ul>
 				</li>					
-				<li <?php echo $currentpage == 'convert' || $currentpage == 'convertpesos' || $currentpage == 'convertwallet' || $currentpage == 'fundtransfer' ? 'class="active"' : ''; ?>>
-					<a href="#" ><i class="icon-cycle"></i> <span>Convert</span></a>
-					<ul>
-						<li <?php echo $currentpage == 'convert' ? 'class="active"' : ''; ?>><a href="index.php?page=convert" >BTC to USD</a></li>
-						<li <?php echo $currentpage == 'convertpesos' ? 'class="active"' : ''; ?>><a href="index.php?page=convertpesos" >USD to BTC</a></li>
-						<li <?php echo $currentpage == 'convertwallet' ? 'class="active"' : ''; ?>><a href="index.php?page=convertwallet" >USD to E-wallet</a></li>
-					</ul>
-				</li>
 				<li <?php echo $currentpage == 'personalentity' ? 'class="active"' : ''; ?>><a href="index.php?page=personalentity" ><i class="icon-price-tag"></i> <span>My Products</span></a></li>
 
 				<li <?php echo $currentpage == 'fundtransfer' ? 'class="active"' : ''; ?>><a href="index.php?page=fundtransfer" ><i class="icon-dollar"></i> <span>Fund Transfer</span></a></li>

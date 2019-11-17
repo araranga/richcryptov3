@@ -83,6 +83,16 @@ ini_set("error_log", "php-error.log");
 <script>
 jQuery(document).ready(function(){
 
+
+
+jQuery('.icon-dollar').each(function(){ 
+
+	jQuery(this).html('&#8369;').removeClass('icon-dollar');
+
+}); 
+
+		
+
     // Select and loop the container element of the elements you want to equalise
     jQuery('.mainectable').each(function(){  
       

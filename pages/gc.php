@@ -65,6 +65,10 @@ function pin()
 			$startDate = date('Y-m-d');
 			$wDays = $check_row_main['days'];
 			$new_date = date('Y-m-d', strtotime("{$startDate} +{$wDays} weekdays"));
+
+			$c1 = date('Y-m-d', strtotime("{$startDate} + 30 weekdays"));
+			$c2 = date('Y-m-d', strtotime("{$startDate} + 60 weekdays"));
+			$c3 = date('Y-m-d', strtotime("{$startDate} + 90 weekdays"));
 			$maturity_amount = (($check_row_main['maturity'] / 100) * $check_row['rate_start']) + $check_row['rate_start'];
 			$buycodeaccounts_id = 0;
 			$position = $_SESSION['accounts_id'];
@@ -98,7 +102,7 @@ function pin()
 
 			}
 
-			mysql_query_cheat("INSERT INTO tbl_buycode_history SET package_id='$package_id',package_summary='$package_summary',accounts_id='$buycodeaccounts_id',position='$position',code_pin='$code_pin',code_value='$code_value',rebates='$rebates',maturity_date='$new_date',amount='{$check_row['rate_start']}',maturity_amount='$maturity_amount'");
+			mysql_query_cheat("INSERT INTO tbl_buycode_history SET package_id='$package_id',package_summary='$package_summary',accounts_id='$buycodeaccounts_id',position='$position',code_pin='$code_pin',code_value='$code_value',rebates='$rebates',maturity_date='$new_date',amount='{$check_row['rate_start']}',maturity_amount='$maturity_amount',c1='$c1',c2='$c2',c3='$c3'");
 
 			$q = mysql_query_cheat("SELECT * FROM tbl_accounts WHERE accounts_id='$accounts_id'");
 			$row = mysqli_fetch_array_cheat($q);	
@@ -121,8 +125,8 @@ function pin()
 
 	$own2 = array();
 
-	$own2['balance_pesos'] = "USD Balance.";
-	$own2['balance_wallet'] = "E-wallet";
+	$own2['balance_pesos'] = "Peso Balance.";
+	#$own2['balance_wallet'] = "E-wallet";
 		
 	$field[] = array("type"=>"select","value"=>"rate","label"=>"Choose Your Package","option"=>$arr);
 	$field[] = array("type"=>"select","value"=>"datatype","label"=>"Choose your purpose","option"=>$own);
@@ -145,9 +149,9 @@ function pin()
 			<div>
 				<h3><?php echo $row_packagex['rate_name']; ?></h3>
 				<p>
-					<span class="minimum"><i>Minimum</i> <strong>$<?php echo number_format($row_packagex['rate_start'],2); ?></strong></span>
-					<span class="maximum"><i>Maximum</i> <strong>$<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
-					<span class="bonus-rate"><i>Bonus Rate <?php echo $row_packagex['maturity']; ?>% after</i> <strong><?php echo $row_packagex['days']; ?> Business Days</strong></span>
+					<span class="minimum"><i>Minimum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_start'],2); ?></strong></span>
+					<span class="maximum"><i>Maximum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
+					<span class="bonus-rate"><i>Bonus Rate 30% up to 90% per cycle (up to 3 cycles)</i></span>
 				</p>
 			</div>
 		</div>
@@ -165,10 +169,6 @@ function pin()
 				<li>
 					<i class="icon-dollar"></i>
 					<span><em>Dollar</em> <?php echo number_format($row['balance_pesos'],2);?></span>
-				</li>
-				<li>
-					<i class="icon-wallet"></i>
-					<span><em>E-Wallet</em> <?php echo number_format($row['balance_wallet'],2);?></span>
 				</li>
 			</ul>
 		</div>
@@ -310,11 +310,9 @@ while($rowqnotuse = mysqli_fetch_array_cheat($qnotuse)){
 	?>
         <tr>
 		   <td><?php echo $rowqnotuse['code_value']; ?>-<?php echo $rowqnotuse['code_pin']; ?></td>
-           <td>$<?php echo number_format($rowqnotuse['amount'],2); ?></td>
+           <td>&#8369;<?php echo number_format($rowqnotuse['amount'],2); ?></td>
            <td>
            	Trading Course: <?php echo $check_row['rate_name']; ?><br>
-           	Bonus Rate: <?php echo $check_row['maturity']; ?>%<br>
-           	Business Days: <?php echo $check_row['days']; ?><br>
            	
            </td>
         </tr>

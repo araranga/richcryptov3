@@ -52,7 +52,11 @@ function trans()
 			$new_date = date('Y-m-d', strtotime("{$startDate} +{$wDays} weekdays"));
 
 
-			mysql_query_cheat("UPDATE tbl_buycode_history SET accounts_id='{$_SESSION['accounts_id']}',position=0,maturity_date='{$new_date}' WHERE id='{$qxxrow['id']}'");
+			$c1 = date('Y-m-d', strtotime("{$startDate} + 30 weekdays"));
+			$c2 = date('Y-m-d', strtotime("{$startDate} + 60 weekdays"));
+			$c3 = date('Y-m-d', strtotime("{$startDate} + 90 weekdays"));
+
+			mysql_query_cheat("UPDATE tbl_buycode_history SET accounts_id='{$_SESSION['accounts_id']}',position=0,maturity_date='{$new_date}',c1='$c1',c2='$c2',c3='$c3' WHERE id='{$qxxrow['id']}'");
 
 			$msg = "Code activated: {$_POST['codes']}";
 			saveLogs($_SESSION['accounts_id'],$msg);
