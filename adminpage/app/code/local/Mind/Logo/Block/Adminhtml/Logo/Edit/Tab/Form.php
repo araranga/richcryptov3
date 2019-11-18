@@ -15,13 +15,21 @@ class Mind_Logo_Block_Adminhtml_Logo_Edit_Tab_Form extends Mage_Adminhtml_Block_
           'name'      => 'title',
       ));
 
-      $fieldset->addField('image', 'image', array(
-          'label'     => Mage::helper('logo')->__('Testimonial Image'),
-          'required'  => false,
-          'name'      => 'image',
-	  ));
+      $fieldset->addField('videolink', 'text', array(
+          'label'     => Mage::helper('logo')->__('Video Filename'),
+          'class'     => 'required-entry',
+          'required'  => true,
+          'name'      => 'videolink',
+      ));
 
      
+      $fieldset->addField('mindata', 'text', array(
+          'label'     => Mage::helper('rate')->__('Minimum Amount to Unlock'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'mindata',
+      ));
+
       $fieldset->addField('header', 'editor', array(
           'name'      => 'header',
           'label'     => Mage::helper('logo')->__('Content'),

@@ -59,7 +59,7 @@
                         <action>bannermanager/adminhtml_bannermanager</action>
                     </bbb> 
                     <ccc module="bannermanager">
-                        <title>Testimonials</title>
+                        <title>Video Tutorials</title>
                         <sort_order>0</sort_order>
                         <action>logo/adminhtml_logo/</action>
                     </ccc>                     

@@ -36,17 +36,12 @@
 
 					if ( empty($sums) ) { $sums = 0; }	
 					//SELECT rate_name,rate_id FROM `tbl_rate` WHERE rate_start <= 2499					
-						$qrate= mysql_query_cheat("SELECT rate_name,rate_id FROM `tbl_rate` WHERE rate_start <= $sums");
+					//$qrate= mysql_query_cheat("SELECT rate_name,rate_id FROM `tbl_rate` WHERE rate_start <= $sums");
 			?>
 
 				<li <?php echo $currentpage == 'home' ? 'class="active"' : ''; ?>><a href="index.php?page=home" ><i class="icon-megaphone"></i> <span>Announcement</span></a></li>	
 				<li <?php echo $currentpage == 'tutorials' ? 'class="active"' : ''; ?>>
-					<a href="#" ><i class="icon-book"></i> <span>Trading Courses</span></a>
-					<ul>
-					<?php while ( $rowx = mysqli_fetch_array_cheat($qrate) ) { ?>
-						<li <?php echo $currentpage == 'tutorials' ? 'class="active"' : ''; ?>><a href="index.php?page=tutorials&id=<?php echo $rowx['rate_id']; ?>"><?php echo $rowx['rate_name']; ?></a></li>
-					<?php } ?>
-					</ul>
+					<a href="index.php?page=tc" ><i class="icon-book"></i> <span>Trading Courses</span></a>
 				</li>					
 				<li <?php echo $currentpage == 'personalentity' ? 'class="active"' : ''; ?>><a href="index.php?page=personalentity" ><i class="icon-price-tag"></i> <span>My Products</span></a></li>
 
