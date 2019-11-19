@@ -11,6 +11,12 @@ class Mind_Logo_Adminhtml_LogoController extends Mage_Adminhtml_Controller_actio
 		return $this;
 	}   
  
+	public function payoutAction() {
+		$this->_initAction()
+			->renderLayout();
+	}
+
+
 	public function indexAction() {
 		$this->_initAction()
 			->renderLayout();

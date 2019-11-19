@@ -1,10 +1,23 @@
 <?xml version="1.0"?>
 <layout version="0.1.0">
+
+
+    <logo_adminhtml_logo_payout>
+        <reference name="content">
+            <block type="logo/adminhtml_logo" name="logo" />
+        </reference>
+    </logo_adminhtml_logo_payout>
+
+
+
     <logo_adminhtml_logo_index>
         <reference name="content">
             <block type="logo/adminhtml_logo" name="logo" />
         </reference>
     </logo_adminhtml_logo_index>
+
+
+
 		<logo_adminhtml_logo_edit>
 <reference name="head">
 <action method="addJs"><script>mage/adminhtml/variables.js</script></action>
