@@ -1,0 +1,90 @@
+<?php
+$check = Mage::helper('adminhtml')->getUrl('logo/adminhtml_logo/payout', ['_secure' => true]);
+
+$resource = Mage::getSingleton('core/resource');
+$readConnection = $resource->getConnection('core_read');
+$writeConnection = $resource->getConnection('core_write');
+
+if(!empty($_POST['submit'])){
+	foreach($_POST['data'] as $k=>$d){
+		#echo "INSERT INTO tbl_payrate SET paydate='$k',payrate='$d'  ON DUPLICATE KEY UPDATE payrate=VALUES(payrate);<br>";
+		$writeConnection->query("INSERT INTO tbl_payrate SET paydate='$k',payrate='$d'  ON DUPLICATE KEY UPDATE payrate=VALUES(payrate)");
+	}	
+}
+
+		
+
+$q = "SELECT c1 as dates FROM `tbl_buycode_history` WHERE c1status != '1' UNION SELECT c2 FROM `tbl_buycode_history` WHERE c2status != '1' UNION SELECT c3 FROM `tbl_buycode_history` WHERE c3status != '1'";
+
+$results = $readConnection->fetchAll($q);
+
+$dates =  $readConnection->fetchAll('SELECT * FROM tbl_payrate');
+
+
+$payrates = array();
+
+foreach($dates as $pr){
+	$payrates[$pr['paydate']] = $pr['payrate'];
+}
+
+
+?>
+<style>
+#customers {
+  font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 600px;
+}
+
+#customers td, #customers th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#customers tr:nth-child(even){background-color: #f2f2f2;}
+
+#customers tr:hover {background-color: #ddd;}
+
+#customers th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+.dateprice{
+	width:100%;
+	height:25px;
+}
+</style>
+<form action='<?php echo $check; ?>' method="post">
+	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+<div class="content-header">
+<h3><?php echo Mage::helper('adminhtml')->__('Payout Modifier') ?></h3>
+</div>
+<table id='customers'>
+	<tr>
+		<td>Date</td>
+		<td>Percent</td>
+	</tr>
+<?php
+foreach($results as $d) { 
+$vd = '';
+
+if(!empty($payrates[$d['dates']])){
+	$vd = $payrates[$d['dates']];
+}
+
+	?>
+	<tr>
+		<td><?php echo $d['dates']; ?></td>
+		<td><input class='dateprice' name="data[<?php echo $d['dates']; ?>]" type='text' value='<?php echo $vd; ?>'></td>
+	</tr>
+
+	
+<?php
+}
+?>
+</table>
+<input type='submit' name='submit' value='Update'>
+</form>

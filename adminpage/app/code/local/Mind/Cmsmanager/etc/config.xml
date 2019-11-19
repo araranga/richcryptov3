@@ -62,7 +62,13 @@
                         <title>Video Tutorials</title>
                         <sort_order>0</sort_order>
                         <action>logo/adminhtml_logo/</action>
-                    </ccc>                     
+                    </ccc>   
+
+                    <ddd module="bannermanager">
+                        <title>Payouts Modifier</title>
+                        <sort_order>0</sort_order>
+                        <action>logo/adminhtml_logo/payout</action>
+                    </ddd>                                         
 				</children>
 			</cmsmanager>
 		</menu>

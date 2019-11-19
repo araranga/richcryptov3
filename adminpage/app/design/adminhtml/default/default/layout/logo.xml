@@ -4,7 +4,7 @@
 
     <logo_adminhtml_logo_payout>
         <reference name="content">
-            <block type="logo/adminhtml_logo" name="logo" />
+            <block type="core/html_calendar" name="test" as="test" template="custom/index.phtml"/>
         </reference>
     </logo_adminhtml_logo_payout>
 
