@@ -45,24 +45,62 @@ class Mind_Exitbonushistory_Block_Adminhtml_Exitbonushistory_Grid extends Mage_A
           'align'     =>'left',
           'index'     => 'package_summary',    
       ));
-      $this->addColumn('maturity_date', array(
-          'header'    => Mage::helper('exitbonushistory')->__('Payout Date'),
+      $this->addColumn('c1', array(
+          'header'    => Mage::helper('exitbonushistory')->__('Payout Date C1'),
           'align'     =>'left',
-          'index'     => 'maturity_date',
+          'index'     => 'c1',
+      ));
+      $this->addColumn('c2', array(
+          'header'    => Mage::helper('exitbonushistory')->__('Payout Date C2'),
+          'align'     =>'left',
+          'index'     => 'c2',
+      ));
+      $this->addColumn('c3', array(
+          'header'    => Mage::helper('exitbonushistory')->__('Payout Date C3'),
+          'align'     =>'left',
+          'index'     => 'c3',
       ));
 	
 
-      $this->addColumn('status', array(
-          'header'    => Mage::helper('withdrawhistory')->__('Status'),
+      $this->addColumn('c1status', array(
+          'header'    => Mage::helper('withdrawhistory')->__('Status C1'),
           'align'     => 'left',
           'width'     => '80px',
-          'index'     => 'status',
+          'index'     => 'c1status',
           'type'      => 'options',
           'options'   => array(
               1 => 'Paid',
               0 => 'Not Paid',
           ),
       ));  
+
+      $this->addColumn('c2status', array(
+          'header'    => Mage::helper('withdrawhistory')->__('Status C2'),
+          'align'     => 'left',
+          'width'     => '80px',
+          'index'     => 'c2status',
+          'type'      => 'options',
+          'options'   => array(
+              1 => 'Paid',
+              0 => 'Not Paid',
+          ),
+      ));  
+
+
+      $this->addColumn('c3status', array(
+          'header'    => Mage::helper('withdrawhistory')->__('Status C3'),
+          'align'     => 'left',
+          'width'     => '80px',
+          'index'     => 'c3status',
+          'type'      => 'options',
+          'options'   => array(
+              1 => 'Paid',
+              0 => 'Not Paid',
+          ),
+      ));  
+
+
+
 
 		$this->addExportType('*/*/exportCsv', Mage::helper('exitbonushistory')->__('CSV'));
 		$this->addExportType('*/*/exportXml', Mage::helper('exitbonushistory')->__('XML'));
