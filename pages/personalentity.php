@@ -57,6 +57,7 @@ $monthly = "amount,maturity_date,maturity_amount";
         <thead>
             <tr>
     			<th>My Product Database</th>
+                <th>History</th>
                 <th>Amount</th>
                 <th>Cycle 1</th>
                 <th>Cycle 2</th>
@@ -72,6 +73,7 @@ $monthly = "amount,maturity_date,maturity_amount";
 		?>
             <tr>
                 <td><?php echo $row['package_summary']; ?></td>
+                <td><?php echo $row['history']; ?></td>
                 <td>&#8369;<?php echo number_format($row['amount'],2); ?></td>
                 <?php
                 for ($x = 1; $x <= 3; $x++) {
