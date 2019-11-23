@@ -255,7 +255,7 @@ function pin()
 			<ul class="amount-box-list balances">
 				<li>
 					<i class="icon-dollar"></i>
-					<span><em>Dollar</em> <?php echo number_format($row['balance_pesos'],2);?></span>
+					<span><em>Pesos</em> <?php echo number_format($row['balance_pesos'],2);?></span>
 				</li>
 			</ul>
 		</div>
