@@ -4,7 +4,65 @@ $accounts_id = $_SESSION['accounts_id'];
 $q = mysql_query_cheat("SELECT * FROM tbl_accounts WHERE accounts_id='$accounts_id'");
 $row = mysqli_fetch_array_cheat($q);
 
-#var_dump($row);
+function getparent($username){
+
+    $q = mysql_query_cheat("SELECT refer,username,accounts_id FROM tbl_accounts WHERE username='$username'");
+
+    $return = array();
+
+    while($row=mysqli_fetch_array_cheat($q)) {
+
+        $return[] = $row;
+
+    }
+    return $return;
+
+}
+
+function getparentreb($array,$count){
+
+    if($count==6){
+        return;
+    }
+
+    foreach($array as $d){
+        $_GET['reb'][$count][$d['accounts_id']] = $d['username'];
+
+
+        $a = getparent($d['refer']);
+        $count2 = $count + 1;
+        getparentreb($a,$count2);
+    }
+
+}
+
+$getparent = array();
+
+$level1 = getparent($row['refer']);
+
+getparentreb($level1,1);
+
+$count = 6;
+
+if(!empty(count($_GET['reb'])))
+{
+
+foreach($_GET['reb'] as $reb){
+
+    $count--;
+
+    foreach($reb as $id=>$d){
+
+        $getparent[$id] = $d;
+    }
+
+
+
+}
+
+}
+
+
 function pin()
 {
     $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -101,6 +159,35 @@ function pin()
 
 
 			}
+
+
+			if(!empty(count($getparent))){
+
+				$rebatesuni = $check_row['rate_start'] * 0.01;
+
+
+				foreach($getparent as $id=>$idname){
+
+				$refersummary = "1% Unilevel Bonus From {$check_row['rate_start']} - {$row['username']}";
+				$q2 = mysql_query_cheat("SELECT * FROM tbl_accounts WHERE username='{$idname}'");
+				$row2 = mysqli_fetch_array_cheat($q2);
+				mysql_query_cheat("INSERT INTO tbl_bonus SET amount='$rebatesuni',accounts_id='{$row2['accounts_id']}',bonus_type='{$row['accounts_id']}',refer_summary='$refersummary',unilevel='{$_SESSION['accounts_id']}'");
+				mysql_query_cheat("UPDATE tbl_accounts SET balance_pesos= balance_pesos + $rebatesuni WHERE accounts_id='{$row2['accounts_id']}'");
+
+
+			$msg = "1% --{$rebatesuni}-- Unilevel bonus given to {$row2['username']} Code is: $code_value-$code_pin";
+			saveLogs($_SESSION['accounts_id'],$msg);
+
+				}
+
+
+
+			}
+
+
+
+
+
 
 			mysql_query_cheat("INSERT INTO tbl_buycode_history SET package_id='$package_id',package_summary='$package_summary',accounts_id='$buycodeaccounts_id',position='$position',code_pin='$code_pin',code_value='$code_value',rebates='$rebates',maturity_date='$new_date',amount='{$check_row['rate_start']}',maturity_amount='$maturity_amount',c1='$c1',c2='$c2',c3='$c3'");
 

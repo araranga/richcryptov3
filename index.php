@@ -7,6 +7,10 @@ ini_set("error_log", "php-error.log");
 	require_once("function.php");
 	require_once 'googleLib/GoogleAuthenticator.php';
 	$ga = new GoogleAuthenticator();	
+
+	if($_GET['agree']==1){
+		$_SESSION['termsok'] = 1;
+	}
 ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -46,6 +50,14 @@ ini_set("error_log", "php-error.log");
 						$_GET['page'] = "signin";
 					}				
 				}
+
+				if ( $_SESSION['loggedin'] && empty($_SESSION['termsok']))
+				{
+					if($_GET['page']!='signout'){
+						$_GET['page'] = 'terms';
+					}
+					
+				}
 			
 				if( !$_GET['page'] ) {
 					echo "<div class='wrap'>";
@@ -76,7 +88,8 @@ ini_set("error_log", "php-error.log");
 				<?php } ?>
             </div>
         </div> -->
-          
+ 
+
 
 
     
