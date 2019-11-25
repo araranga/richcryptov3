@@ -227,22 +227,35 @@ function pin()
     <h2>Buy Courses</h2>
 </div>
 
+<?php
+$colors = array();
+	$colors[1] = '#9fdb8c';
+	$colors[2] = '#dbb58c';
+	$colors[3] = '#db8c8c';
+	$col = 1;
+?>
+<style>
+.course-list .course div h3 {
+    font-size: 100%;
+}
+</style>
 <div class="col-grp course-list">
 	<?php 
 		$package_query = mysql_query_cheat("SELECT * FROM tbl_rate WHERE activated='1' AND rate_bet!=2");	
 		while ( $row_packagex = mysqli_fetch_array_cheat($package_query) ) {
 	?>
-		<div class="col col-4 course course-<?php echo $row_packagex['rate_name']; ?>">
+		<div class="col col-4 course course-a">
 			<div>
-				<h3><?php echo $row_packagex['rate_name']; ?></h3>
+				<h3 style='background: <?php echo $colors[$col]; ?>'><?php echo $row_packagex['rate_name']; ?></h3>
 				<p>
 					<span class="minimum"><i>Minimum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_start'],2); ?></strong></span>
-					<span class="maximum"><i>Maximum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
+					<span class="maximum" style='color:<?php echo $colors[$col]; ?>'><i>Maximum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
 					<span class="bonus-rate"><i>Bonus Rate 30% up to 90% per cycle (up to 3 cycles)</i></span>
 				</p>
 			</div>
 		</div>
 	<?php
+	$col++;
 		}
 	?>
 </div>
