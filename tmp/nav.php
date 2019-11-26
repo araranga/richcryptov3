@@ -51,7 +51,7 @@
 				<!--<li><a href="index.php?page=reentry" ><i class="fa fa-pencil-square-o"></i>Add Entry</a></li>-->
 				<li <?php echo $currentpage == 'gc' ? 'class="active"' : ''; ?>><a href="index.php?page=gc" ><i class="icon-shopping-basket"></i> <span>Purchase Products</span></a></li>					
 				<li <?php echo $currentpage == 'btcwallet' ? 'class="active"' : ''; ?>><a href="index.php?page=btcwallet" ><i class="icon-share-alternitive"></i> <span>Deposit</span></a></li>	
-				<li <?php echo $currentpage == 'transaction' ? 'class="active"' : ''; ?>><a href="index.php?page=transaction" ><i class="icon-shield"></i> <span>Verify My Deposit</span></a></li>	
+		<!-- 		<li <?php echo $currentpage == 'transaction' ? 'class="active"' : ''; ?>><a href="index.php?page=transaction" ><i class="icon-shield"></i> <span>Verify My Deposit</span></a></li>	 -->
 				<li <?php echo $currentpage == 'withdrawal' ? 'class="active"' : ''; ?>><a href="index.php?page=withdrawal" ><i class="icon-dollar"></i> <span>Withdrawal</span></a></li>
 				<li><a href="index.php?page=signout" ><i class="icon-log-out"></i> <span>Logout</span></a></li>
 

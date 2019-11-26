@@ -124,9 +124,9 @@ function pin()
 			$wDays = $check_row_main['days'];
 			$new_date = date('Y-m-d', strtotime("{$startDate} +{$wDays} weekdays"));
 
-			$c1 = date('Y-m-d', strtotime("{$startDate} + 30 weekdays"));
-			$c2 = date('Y-m-d', strtotime("{$startDate} + 60 weekdays"));
-			$c3 = date('Y-m-d', strtotime("{$startDate} + 90 weekdays"));
+			$c1 = date('Y-m-d', strtotime("{$startDate} + 90 weekdays"));
+			$c2 = date('Y-m-d', strtotime("{$startDate} + 180 weekdays"));
+			$c3 = date('Y-m-d', strtotime("{$startDate} + 270 weekdays"));
 			$maturity_amount = (($check_row_main['maturity'] / 100) * $check_row['rate_start']) + $check_row['rate_start'];
 			$buycodeaccounts_id = 0;
 			$position = $_SESSION['accounts_id'];
