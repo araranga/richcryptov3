@@ -146,6 +146,7 @@ function pin()
 
 			if ( !empty( $row['refer'] ) )
 			{
+			if ( $_POST['datatype'] == 'yes' ) {
 				$refersummary = "5% From {$check_row['rate_start']} - {$row['username']}";
 				$q2 = mysql_query_cheat("SELECT * FROM tbl_accounts WHERE username='{$row['refer']}'");
 				$row2 = mysqli_fetch_array_cheat($q2);
@@ -156,12 +157,13 @@ function pin()
 
 			$msg = "5% --{$rebates}-- Referral bonus given to {$row2['username']} Code is: $code_value-$code_pin";
 			saveLogs($_SESSION['accounts_id'],$msg);
-
+			}
 
 			}
 
 
 			if(!empty(count($getparent))){
+				
 
 				$rebatesuni = $check_row['rate_start'] * 0.01;
 
