@@ -199,7 +199,7 @@ function pin()
 		}
 	}
 
-	$package_query = mysql_query_cheat("SELECT * FROM tbl_rate WHERE activated='1' AND rate_bet!=2 AND prod_type=0");	
+	$package_query = mysql_query_cheat("SELECT * FROM tbl_rate WHERE activated='1' AND rate_bet!=2 AND prod_type=1");	
 	$arr = array();
 	$package_description = array();
 	while($row_package = mysqli_fetch_array_cheat($package_query))
@@ -226,7 +226,7 @@ function pin()
 ?>
 
 <div class="npage-header">
-    <h2>Buy Courses</h2>
+    <h2>Buy Products</h2>
 </div>
 
 <?php
@@ -243,17 +243,19 @@ $colors = array();
 </style>
 <div class="col-grp course-list">
 	<?php 
-		$package_query = mysql_query_cheat("SELECT * FROM tbl_rate WHERE activated='1' AND rate_bet!=2 AND prod_type=0");	
+		$package_query = mysql_query_cheat("SELECT * FROM tbl_rate WHERE activated='1' AND rate_bet!=2 AND prod_type=1");	
 		while ( $row_packagex = mysqli_fetch_array_cheat($package_query) ) {
 	?>
-		<div class="col col-4 course course-a">
+		<div class="col col-4 course course-a" style='min-height: 400px;'>
 			<div>
 				<h3 style='background: <?php echo $colors[$col]; ?>'><?php echo $row_packagex['rate_name']; ?></h3>
 				<p>
 					<span class="minimum"><i>Minimum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_start'],2); ?></strong></span>
 					<span class="maximum" style='color:<?php echo $colors[$col]; ?>'><i>Maximum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
 					<span class="bonus-rate"><i>Exclusive Reward 30% up to 90% per cycle (up to 3 cycles)</i></span>
-				</p>
+
+
+				</p>			
 			</div>
 		</div>
 	<?php

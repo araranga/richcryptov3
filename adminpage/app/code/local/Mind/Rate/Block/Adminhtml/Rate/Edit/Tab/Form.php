@@ -29,36 +29,55 @@ class Mind_Rate_Block_Adminhtml_Rate_Edit_Tab_Form extends Mage_Adminhtml_Block_
       ));
 
 
-      $fieldset->addField('days', 'text', array(
-          'label'     => Mage::helper('rate')->__('Funding maturity days'),
-          'class'     => 'required-entry validate-number',
-          'required'  => true,
-          'name'      => 'days',
+      // $fieldset->addField('days', 'text', array(
+      //     'label'     => Mage::helper('rate')->__('Funding maturity days'),
+      //     'class'     => 'required-entry validate-number',
+      //     'required'  => true,
+      //     'name'      => 'days',
+      // ));
+
+
+      // $fieldset->addField('cycle1', 'text', array(
+      //     'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 1)'),
+      //     'class'     => 'required-entry validate-number',
+      //     'required'  => true,
+      //     'name'      => 'cycle1',
+      // ));
+
+      // $fieldset->addField('cycle2', 'text', array(
+      //     'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 2)'),
+      //     'class'     => 'required-entry validate-number',
+      //     'required'  => true,
+      //     'name'      => 'cycle2',
+      // ));
+
+
+
+      // $fieldset->addField('cycle3', 'text', array(
+      //     'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 3)'),
+      //     'class'     => 'required-entry validate-number',
+      //     'required'  => true,
+      //     'name'      => 'cycle3',
+      // ));
+
+
+      $fieldset->addField('prod_type', 'select', array(
+          'label'     => Mage::helper('rate')->__('Rate Type'),
+          'name'      => 'prod_type',
+          'values'    => array(
+              array(
+                  'value'     => 0,
+                  'label'     => Mage::helper('rate')->__('Product'),
+              ),
+
+              array(
+                  'value'     => 1,
+                  'label'     => Mage::helper('rate')->__('Courses'),
+              ),
+          ),
       ));
 
 
-      $fieldset->addField('cycle1', 'text', array(
-          'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 1)'),
-          'class'     => 'required-entry validate-number',
-          'required'  => true,
-          'name'      => 'cycle1',
-      ));
-
-      $fieldset->addField('cycle2', 'text', array(
-          'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 2)'),
-          'class'     => 'required-entry validate-number',
-          'required'  => true,
-          'name'      => 'cycle2',
-      ));
-
-
-
-      $fieldset->addField('cycle3', 'text', array(
-          'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 3)'),
-          'class'     => 'required-entry validate-number',
-          'required'  => true,
-          'name'      => 'cycle3',
-      ));
 
 
 

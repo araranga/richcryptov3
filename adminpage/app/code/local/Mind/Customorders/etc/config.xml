@@ -1,0 +1,120 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Mind_Customorders>
+      <version>0.1.0</version>
+    </Mind_Customorders>
+  </modules>
+  <global>
+    <helpers>
+      <customorders>
+        <class>Mind_Customorders_Helper</class>
+      </customorders>
+    </helpers>
+	<blocks>
+	  <customorders>
+		<class>Mind_Customorders_Block</class>
+	  </customorders>
+	</blocks>
+	<models>
+	  <customorders>
+		<class>Mind_Customorders_Model</class>
+		<resourceModel>customorders_mysql4</resourceModel>
+	  </customorders>
+	  <customorders_mysql4>
+		<class>Mind_Customorders_Model_Mysql4</class>
+		<entities>
+			  <corders>
+				<table>corders</table>
+			  </corders>
+			  <cprods>
+				<table>cprods</table>
+			  </cprods>
+		</entities>
+	  </customorders_mysql4>
+	</models>
+	<resources>
+	  <customorders_setup>
+		<setup>
+		  <module>Mind_Customorders</module>
+		</setup>
+		<connection>
+		  <use>core_setup</use>
+		</connection>
+	  </customorders_setup>
+	  <customorders_write>
+		<connection>
+		  <use>core_write</use>
+		</connection>
+	  </customorders_write>
+	  <customorders_read>
+		<connection>
+		  <use>core_read</use>
+		</connection>
+	  </customorders_read>
+	</resources>
+  </global>
+  <admin>
+	<routers>
+	  <customorders>
+	    <use>admin</use>
+		<args>
+		  <module>Mind_Customorders</module>
+		  <frontName>admin_customorders</frontName>
+		</args>
+	  </customorders>
+	</routers>
+  </admin>
+  <adminhtml>
+	<menu>
+	  <customorders module="customorders">
+		<title>Customorders</title>
+		<sort_order>100</sort_order>
+		<children>
+		  <corders module="customorders">
+		    <title>Manage Corders</title>
+			<sort_order>0</sort_order>
+			<action>admin_customorders/adminhtml_corders</action>
+		  </corders>
+		  <cprods module="customorders">
+		    <title>Manage Cprods</title>
+			<sort_order>10</sort_order>
+			<action>admin_customorders/adminhtml_cprods</action>
+		  </cprods>
+		</children>
+	  </customorders>
+	</menu>
+	<acl>
+	  <resources>
+		<all>
+		  <title>Allow Everything</title>
+		</all>
+		<admin>
+		  <children>
+			<customorders translate="title" module="customorders">
+			  <title>Customorders</title>
+			  <sort_order>1000</sort_order>
+			  <children>
+		  <corders translate="title">
+			<title>Manage Corders</title>
+			<sort_order>0</sort_order>
+		  </corders>
+		  <cprods translate="title">
+			<title>Manage Cprods</title>
+			<sort_order>10</sort_order>
+		  </cprods>
+			  </children>
+			</customorders>
+		  </children>
+		</admin>
+	  </resources>
+	</acl>
+	<layout>
+	  <updates>
+		<customorders>
+		  <file>customorders.xml</file>
+		</customorders>
+	  </updates>
+	</layout>
+  </adminhtml>
+</config> 

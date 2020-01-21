@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+  <customorders_adminhtml_corders_index>
+	<reference name="content">
+	  <block type="customorders/adminhtml_corders" name="corders" />
+	</reference>
+  </customorders_adminhtml_corders_index>
+  <customorders_adminhtml_cprods_index>
+	<reference name="content">
+	  <block type="customorders/adminhtml_cprods" name="cprods" />
+	</reference>
+  </customorders_adminhtml_cprods_index>
+</layout>
