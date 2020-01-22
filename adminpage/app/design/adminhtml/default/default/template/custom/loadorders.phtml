@@ -1,0 +1,148 @@
+ <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ <script>
+jQuery.noConflict();
+// Code that uses other library's $ can follow here.
+</script>
+
+<?php
+
+
+if($_POST['submit']){
+	$orders =  Mage::getModel("customorders/corders")->load($this->getRequest()->getParam('id'));
+	$orders->addData($_POST);
+	$orders->save();
+}
+$check = Mage::helper('adminhtml')->getUrl('admin_customorders/adminhtml_corders/loadorder', ['_secure' => true,'id'=>$this->getRequest()->getParam('id')]);
+
+$resource = Mage::getSingleton('core/resource');
+$readConnection = $resource->getConnection('core_read');
+$writeConnection = $resource->getConnection('core_write');
+
+
+$collection = Mage::getModel("customorders/cprods")->getCollection();
+
+$orders =  Mage::getModel("customorders/corders")->load($this->getRequest()->getParam('id'));
+
+$ord = $orders->getData();
+
+$products = array();
+foreach($collection as $prod){
+	 $products[$prod->getId()] = $prod->getData();
+}
+
+$p = json_decode($ord['items'],true);
+
+
+?>
+<style>
+	.theads{
+    background: #000000;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    padding: 10px;		
+	}
+	.theadsprods{
+    font-size: 18px;
+    padding: 10px;		
+	}
+.statusorders {
+    font-size: 19px;
+}
+.formms {
+    height: 30px;
+    width: 199px;
+    font-size: 15px;
+}
+.buttonardee{
+    width: 203px;
+    margin-top: 9px;
+    /* height: 300px; */
+    font-size: 20px;	
+}
+</style>
+<a href='<?php echo Mage::helper('adminhtml')->getUrl('admin_customorders/adminhtml_corders/index'); ?>'><< Go back to order list</a>
+<h1><?php echo $ord['quote']; ?></h1>
+<div class='statusorders'>
+<p>Name: <?php echo $ord['name']; ?></p>
+<p>Address: <?php echo $ord['address']; ?></p>
+<p>Mobile: <?php echo $ord['mobile']; ?></p>
+<p>Pickup:<?php echo $ord['pickup']; ?></p>
+<p>Referred by:<?php echo $ord['referrer']; ?></p>
+</div>
+<div class='itemstable'>
+        <table border='1' padding='1' width='100%'>
+            <thead>
+                <tr class="theads">
+                    <td>Product</td>
+                    <td>Price</td>
+                    <td>Qty</td>
+                    <td>Sub Total</td>
+                </tr>
+            </thead>
+            <tbody id='addmorefields'>
+   
+		   <?php 
+		   foreach($p as $d){
+		   	$id = $d['name'];
+		   	$qty = $d['qty'];
+		   	$name = $products[$id]['name'];
+		   	$price = $products[$id]['price'];
+		   	?>
+		   	<tr class='theadsprods'>
+		   		<td><?php echo $name; ?></td>
+		   		<td><?php echo $price; ?></td>
+		   		<td><?php echo $qty; ?></td>
+		   		<td><?php echo number_format($qty * $price,2); ?></td>
+		   	</tr>
+
+		   	<?php
+		   }
+
+		   ?>     
+
+
+
+            </tbody>
+
+        </table>
+
+
+        <br>
+        <br>
+
+        <form method='POST' action='<?php echo $check; ?>' id='dataformvarien'>
+        	<input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+        	<table>
+        		<tr class='theadsprods'>
+        			<td>Set Commission:<br/>
+        			<input type='text' name='comission' class='formms validate-number' value='<?php echo $ord['comission']; ?>'>
+        		</td>
+        		</tr>
+
+        		<tr class='theadsprods'>
+        			<td>Adjust Shipping Fee:<br/>
+        			<input type='text' name='shipping' class='formms validate-number' value='<?php echo $ord['shipping']; ?>'>
+        		</td>
+        		</tr>
+        		<tr class='theadsprods'>
+        			<td>Set Status:<br/>
+        			<select id='statusdata' name='status' class='formms validate-select'>
+        				<option value='pending'>Pending</option>
+        				<option value='completed'>Completed</option>
+        				<option value='cancelled'>Cancelled</option>
+        			</select>
+        		</td>
+        		</tr>
+
+
+        	</table>
+        	<input type='submit' name='submit' value='Update Order' class='buttonardee'>
+        </form>
+</div>
+<script type="text/javascript">
+	jQuery('#statusdata').val('<?php echo $ord['status']; ?>');
+//<![CDATA[
+    //var theForm = new VarienForm('dataformvarien', true);
+//]]>   
+</script>
