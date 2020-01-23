@@ -67,7 +67,34 @@ class Mind_Customorders_Adminhtml_CordersController extends Mage_Adminhtml_Contr
 
 
 		}
+		public function savecorderAction(){
 
+
+		if($_POST['submit']!='') {
+		    if(count($_POST['items'])){
+		        $_POST['items'] = json_encode($_POST['items']);
+
+		        $postdata = array();
+		        unset($_POST['submit']);
+
+		        $_POST['quote'] = "#ORDER-".time()." for ". $_POST['name'];
+		        foreach($_POST as $key=>$val) {
+		            $val = addslashes($val);
+		            $postdata[] = "$key='$val'";
+		        }
+
+		        $newdata = Mage::getModel("customorders/corders")->load();
+		        $newdata->addData($_POST);
+		        $newdata->save();
+		        $id = $newdata->getId();
+				$success  = 1;
+		    }
+		}
+
+		$this->_redirect("*/*/loadorder",array("id"=>$id));
+
+
+		}
 
 		public function newAction()
 		{

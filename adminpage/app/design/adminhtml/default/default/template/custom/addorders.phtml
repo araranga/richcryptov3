@@ -67,7 +67,7 @@ select > option {
 
 </style>
 <?php
-$check = Mage::helper('adminhtml')->getUrl('admin_customorders/adminhtml_corders/addnew', ['_secure' => true,'tid'=>123]);
+$check = Mage::helper('adminhtml')->getUrl('admin_customorders/adminhtml_corders/savecorder', ['_secure' => true,'tid'=>123]);
 
 $resource = Mage::getSingleton('core/resource');
 $readConnection = $resource->getConnection('core_read');
@@ -82,24 +82,7 @@ foreach($collection as $prod){
 }
 ?>
 <?php
-if($_POST['submit']!='') {
-    if(count($_POST['items'])){
-        $_POST['items'] = json_encode($_POST['items']);
 
-        $postdata = array();
-        unset($_POST['submit']);
-
-        $_POST['quote'] = "#ORDER-".time()." for ". $_POST['name'];
-        foreach($_POST as $key=>$val) {
-            $val = addslashes($val);
-            $postdata[] = "$key='$val'";
-        }
-        var_dump($_POST);
-
-        //mysql_query_cheat("INSERT INTO tbl_corders SET ".implode(",", $postdata));
-        $success  = 1;
-    }
-}
 
 $field[] = array("type"=>"text","value"=>"referrer","label"=>"Referrers Username");
 $field[] = array("type"=>"text","value"=>"name","label"=>"Buyer Name");
@@ -129,7 +112,7 @@ if($success!='') {
 
 ?>
 
-<form method='POST' action='' class="form-container">
+<form method='POST' action='<?php echo $check; ?>' class="form-container">
     <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
         <h2>Create Order</h2>
     <div class="col-grp">
