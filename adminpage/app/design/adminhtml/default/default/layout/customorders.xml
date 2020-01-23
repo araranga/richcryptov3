@@ -14,9 +14,21 @@
 
 
 
+  <customorders_adminhtml_corders_addnew>
+	<reference name="content">
+	  <block type="core/html_calendar" name="test" as="test" template="custom/addorders.phtml"/>
+	</reference>
+  </customorders_adminhtml_corders_addnew>  
+
+
+
+
+
+
   <customorders_adminhtml_corders_loadorder>
 	<reference name="content">
 	  <block type="core/html_calendar" name="test" as="test" template="custom/loadorders.phtml"/>
 	</reference>
   </customorders_adminhtml_corders_loadorder>  
+
 </layout>

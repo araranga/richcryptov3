@@ -11,7 +11,7 @@ class Mind_Customorders_Block_Adminhtml_Corders extends Mage_Adminhtml_Block_Wid
 	$this->_headerText = Mage::helper("customorders")->__("Corders Manager");
 	$this->_addButtonLabel = Mage::helper("customorders")->__("Add New Item");
 	parent::__construct();
-	$this->_removeButton('add');
+	#$this->_removeButton('add');
 	}
 
 }

@@ -57,37 +57,25 @@ class Mind_Customorders_Adminhtml_CordersController extends Mage_Adminhtml_Contr
 				}
 		}
 
+		public function addnewAction(){
+
+			    $this->_title($this->__("Customorders"));
+			    $this->_title($this->__("Manager Corders"));
+
+				$this->_initAction();
+				$this->renderLayout();
+
+
+		}
+
+
 		public function newAction()
 		{
-
-		$this->_title($this->__("Customorders"));
-		$this->_title($this->__("Corders"));
-		$this->_title($this->__("New Item"));
-
-        $id   = $this->getRequest()->getParam("id");
-		$model  = Mage::getModel("customorders/corders")->load($id);
-
-		$data = Mage::getSingleton("adminhtml/session")->getFormData(true);
-		if (!empty($data)) {
-			$model->setData($data);
-		}
-
-		Mage::register("corders_data", $model);
-
-		$this->loadLayout();
-		$this->_setActiveMenu("customorders/corders");
-
-		$this->getLayout()->getBlock("head")->setCanLoadExtJs(true);
-
-		$this->_addBreadcrumb(Mage::helper("adminhtml")->__("Corders Manager"), Mage::helper("adminhtml")->__("Corders Manager"));
-		$this->_addBreadcrumb(Mage::helper("adminhtml")->__("Corders Description"), Mage::helper("adminhtml")->__("Corders Description"));
-
-
-		$this->_addContent($this->getLayout()->createBlock("customorders/adminhtml_corders_edit"))->_addLeft($this->getLayout()->createBlock("customorders/adminhtml_corders_edit_tabs"));
-
-		$this->renderLayout();
+		$this->_redirect("*/*/addnew");
 
 		}
+
+
 		public function saveAction()
 		{
 

@@ -1,6 +1,73 @@
  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+ <style>
+#prodTbl {
+    text-transform: uppercase;
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+
+}
+
+.col-grp input{
+    width:70%!important;  
+    height:30px!important;
+    margin-top:10px!important;
+}
+#addmorefields tr:nth-child(odd) { background-color: #f2f2f2; }
+#addmorefields tr:hover { background-color: #ddd; }
+#prodTbl th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: burlywood;
+    color: black;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.asdasdselect{
+  background:transparent;
+   width: 170px;
+   padding: 2px;
+   font-family:Arial, Helvetica, sans-serif;
+   font-size:11px;
+   font-weight:600;
+   color:#000;
+   line-height: 1;
+   border: 0;
+   border-radius: 0;
+   height: 22px;
+  -webkit-appearance: none;
+ 
+  }
+
+.aselect-div, #aaddmorefields input, .acol-grp input{
+    width: 170px;
+    height: 27px;
+    overflow: hidden;
+    background: url(arrowhead.png) no-repeat right #fff;
+    border-top:#575757 1px solid;
+    -webkit-border-radius: 4px 4px 4px 4px;
+     -moz-border-radius: 4px 4px 4px 4px;
+          border-radius: 4px 4px 4px 4px;
+    -webkit-box-shadow: inset 0 2px 4px rgba(107, 105, 105, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+     -moz-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.15), 0 1px 2px rgba(0, 0, 0, 0.05);
+          -moz-box-shadow:    0px 8px 3px -9px #000000;
+          -webkit-box-shadow: 0px 8px 3px -9px #000000;
+          box-shadow:         0px 8px 3px -9px #000000;
+}
+
+select > option {
+  background: pink;
+}
+.col-grp input {
+    margin-bottom: 5px;
+}
+
+</style>
 <?php
-$check = Mage::helper('adminhtml')->getUrl('logo/adminhtml_logo/payout', ['_secure' => true]);
+$check = Mage::helper('adminhtml')->getUrl('admin_customorders/adminhtml_corders/addnew', ['_secure' => true,'tid'=>123]);
 
 $resource = Mage::getSingleton('core/resource');
 $readConnection = $resource->getConnection('core_read');
@@ -15,76 +82,42 @@ foreach($collection as $prod){
 }
 ?>
 <?php
+if($_POST['submit']!='') {
+    if(count($_POST['items'])){
+        $_POST['items'] = json_encode($_POST['items']);
 
+        $postdata = array();
+        unset($_POST['submit']);
 
+        $_POST['quote'] = "#ORDER-".time()." for ". $_POST['name'];
+        foreach($_POST as $key=>$val) {
+            $val = addslashes($val);
+            $postdata[] = "$key='$val'";
+        }
+        var_dump($_POST);
 
-
-
-    if($_POST['submit']!='')
-
-    {
-
-            if(count($_POST['items'])){
-
-
-                $_POST['items'] = json_encode($_POST['items']);
-
-                $postdata = array();
-                unset($_POST['submit']);
-
-                $_POST['quote'] = "#ORDER-".time()." for ". $_POST['name'];
-                foreach($_POST as $key=>$val)
-                {
-                    $val = addslashes($val);
-                    $postdata[] = "$key='$val'";
-                }
-
-
-                 //mysql_query_cheat("INSERT INTO tbl_corders SET ".implode(",", $postdata));
-                  $success  = 1;
-            }
-
-
-            
-
+        //mysql_query_cheat("INSERT INTO tbl_corders SET ".implode(",", $postdata));
+        $success  = 1;
     }
+}
 
-
-
-
-
-
-
+$field[] = array("type"=>"text","value"=>"referrer","label"=>"Referrers Username");
 $field[] = array("type"=>"text","value"=>"name","label"=>"Buyer Name");
 $field[] = array("type"=>"text","value"=>"address","label"=>"Buyer Address");
 $field[] = array("type"=>"text","value"=>"mobile","label"=>"Mobile/Phone");
 
 $field[] = array("type"=>"select","value"=>"pickup","option"=>array("Yes","No"),"label"=>"Pickup?");
 
-
-if($error!='')
-
-{
-
+if($error!='') {
 ?>
-
 <div class="warning"><ul class="fa-ul"><li><?php echo $error;?></li></ul></div>
-
 <?php
-
 }
-
 ?>
 
-
-
-
-
 <?php
 
-if($success!='')
-
-{
+if($success!='') {
 
 ?>
 
@@ -96,29 +129,13 @@ if($success!='')
 
 ?>
 
-
-
-
-
-
-
 <form method='POST' action='' class="form-container">
-    <div class="npage-header">
-        <h2>Orders</h2>
-    </div>
+    <input type="hidden" name="form_key" value="<?php echo Mage::getSingleton('core/session')->getFormKey() ?>">
+        <h2>Create Order</h2>
     <div class="col-grp">
-
-<hr>
-        Order Referrer: &nbsp;<strong><?php echo $_SESSION['username']; ?></strong><br><input required="" readonly type="hidden" name="referrer" id="referrer" size="40" maxlength="255" value="<?php echo $_SESSION['username']; ?>" placeholder="Referrer">
-
-
-
-        <input required="" readonly type="hidden" name="quote" id="quote" size="40" maxlength="255" value="#order<?php echo time(); ?>-<?php echo $_SESSION['accounts_id']; ?>" placeholder="Referrer">
-<hr>
-
-
-                        <?php
-
+        <input required="" readonly type="hidden" name="quote" id="quote" size="40" maxlength="255" value="xxx" placeholder="Referrer">
+        <hr>
+        <?php
                         $is_editable_field = 1;
 
                         foreach($field as $inputs)
@@ -267,7 +284,7 @@ $selectdata = array();
         var optiondata = "<?php echo implode("", $selectdata); ?>";
         var startingids = parseInt(jQuery('.selectdata').length) + 1;
 
-        jQuery('#addmorefields').append("<tr id='orderitems"+startingids+"'><td><select class='selectdata' name='items["+startingids+"][name]'>"+optiondata+"</select></td><td><input required class='qtydats' type='number' name='items["+startingids+"][qty]'></td><td><a onclick='removeorder("+startingids+")' href='javascript:void(0)'>Remove</td></tr>");
+        jQuery('#addmorefields').append("<tr id='orderitems"+startingids+"'><td><div class='select-div'><select class='selectdata' name='items["+startingids+"][name]'>"+optiondata+"</select></div></td><td><input required class='qtydats' type='number' name='items["+startingids+"][qty]'></td><td><a onclick='removeorder("+startingids+")' href='javascript:void(0)'>Remove</td></tr>");
     }
     
 
@@ -276,14 +293,12 @@ $selectdata = array();
 
 <div class='itemstable'>
     Add Products: <a  onclick='addmorefields()'href='javascript:void(0);'>Add more</a>
-        <table border='1' padding='1' width='100%'>
-            <thead>
+        <table border='1' padding='1' width='100%' id="prodTbl">
                 <tr>
-                    <td>Product</td>
-                    <td>Qty</td>
-                    <td>Action</td>
+                    <th>Product</th>
+                    <th>Qty</th>
+                    <th>Action</th>
                 </tr>
-            </thead>
             <tbody id='addmorefields'>
                 
             </tbody>
@@ -298,6 +313,7 @@ $selectdata = array();
 </form>
 
 <script type="text/javascript">
+jQuery.noConflict();
 jQuery( document ).ready(function() {
     addmorefields();
 });  
