@@ -38,6 +38,21 @@ class Mind_Customorders_Block_Adminhtml_Corders_Grid extends Mage_Adminhtml_Bloc
 				"index" => "dateorder",
 				'type' => 'datetime'
 				));
+
+				$this->addColumn("referrer", array(
+				"header" => Mage::helper("customorders")->__("Referrer"),
+				"index" => "referrer",
+				));
+                
+				$this->addColumn("comission", array(
+				"header" => Mage::helper("customorders")->__("Comission"),
+				"index" => "comission",
+				));
+                
+
+
+
+
 				$this->addColumn("status", array(
 				"header" => Mage::helper("customorders")->__("Status"),
 				"index" => "status",

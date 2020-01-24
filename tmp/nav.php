@@ -48,6 +48,12 @@
 
 				<li <?php echo $currentpage == 'fundtransfer' ? 'class="active"' : ''; ?>><a href="index.php?page=fundtransfer" ><i class="icon-dollar"></i> <span>Fund Transfer</span></a></li>
 
+
+
+				<li <?php echo $currentpage == 'orders' ? 'class="active"' : ''; ?>><a href="index.php?page=orders" ><i class="icon-shopping-basket"></i> <span>Send Orders</span></a></li>
+
+
+
 				<!--<li><a href="index.php?page=reentry" ><i class="fa fa-pencil-square-o"></i>Add Entry</a></li>-->
 				<li <?php echo $currentpage == 'gc' ? 'class="active"' : ''; ?>><a href="index.php?page=gc" ><i class="icon-shopping-basket"></i> <span>Purchase Courses</span></a></li>		
 

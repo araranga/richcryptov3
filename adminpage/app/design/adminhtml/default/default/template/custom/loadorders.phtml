@@ -10,6 +10,20 @@ jQuery.noConflict();
 if($_POST['submit']){
 	$orders =  Mage::getModel("customorders/corders")->load($this->getRequest()->getParam('id'));
 	$orders->addData($_POST);
+
+
+
+
+    if($_POST['status']=='completed'){
+
+    $startDate = date('Y-m-d');
+    $c1 = date('Y-m-d', strtotime("{$startDate} + 30 weekdays"));
+
+    $orders->setPayout($c1);
+
+
+    }
+
 	$orders->save();
 }
 $check = Mage::helper('adminhtml')->getUrl('admin_customorders/adminhtml_corders/loadorder', ['_secure' => true,'id'=>$this->getRequest()->getParam('id')]);
@@ -69,6 +83,32 @@ $p = json_decode($ord['items'],true);
 <p>Mobile: <?php echo $ord['mobile']; ?></p>
 <p>Pickup:<?php echo $ord['pickup']; ?></p>
 <p>Referred by:<?php echo $ord['referrer']; ?></p>
+
+
+
+<?php
+    if(!empty($ord['payout'])){
+        ?>
+        <p>Payout date:<?php echo $ord['payout']; ?></p>
+        <?php
+    }
+?>
+
+<?php
+    if($ord['pickup']=='No'){
+        ?>
+        <p>Shipping Fee:<?php echo number_format($ord['shipping'],2); ?></p>
+        <?php
+    }
+?>
+
+<?php
+    if($ord['status']=='completed'){
+        ?>
+        <p>Payout Status : <?php if($ord['is_paid']) { echo "Paid"; } else { echo "Not Paid"; }; ?></p>
+        <?php
+    }
+?>
 </div>
 <div class='itemstable'>
         <table border='1' padding='1' width='100%'>
@@ -83,11 +123,14 @@ $p = json_decode($ord['items'],true);
             <tbody id='addmorefields'>
    
 		   <?php 
+           $pricex = 0;
 		   foreach($p as $d){
 		   	$id = $d['name'];
 		   	$qty = $d['qty'];
 		   	$name = $products[$id]['name'];
 		   	$price = $products[$id]['price'];
+
+            $pricex = $pricex + ($qty * $price);
 		   	?>
 		   	<tr class='theadsprods'>
 		   		<td><?php echo $name; ?></td>
@@ -100,7 +143,9 @@ $p = json_decode($ord['items'],true);
 		   }
 
 		   ?>     
-
+           <tr>
+             <td colspan='4' style='font-size: 30px;padding: 24px;text-align: center;font-weight: 700;'>Grand Total: <?php echo number_format($pricex + $ord['shipping'],2); ?></td>
+           </tr>
 
 
             </tbody>
