@@ -43,6 +43,17 @@ class Mind_Customorders_Block_Adminhtml_Corders_Grid extends Mage_Adminhtml_Bloc
 				"header" => Mage::helper("customorders")->__("Referrer"),
 				"index" => "referrer",
 				));
+
+
+				$this->addColumn("referrer2", array(
+				"header" => Mage::helper("customorders")->__("Products"),
+				"index" => "referrer",
+				'renderer'  => 'Mind_Reward_Block_Prods',
+				'filter' => false,
+
+				));
+
+
                 
 				$this->addColumn("comission", array(
 				"header" => Mage::helper("customorders")->__("Comission"),
@@ -57,7 +68,8 @@ class Mind_Customorders_Block_Adminhtml_Corders_Grid extends Mage_Adminhtml_Bloc
 				"header" => Mage::helper("customorders")->__("Status"),
 				"index" => "status",
 				));
-
+			$this->addExportType('*/*/exportCsv', Mage::helper('sales')->__('CSV'));
+			$this->addExportType('*/*/exportExcel', Mage::helper('sales')->__('Excel'));
 
 				return parent::_prepareColumns();
 		}
@@ -67,7 +79,18 @@ class Mind_Customorders_Block_Adminhtml_Corders_Grid extends Mage_Adminhtml_Bloc
 			return $this->getUrl("*/*/loadorder", array("id" => $row->getId()));
 		}
 
-
+		protected function _prepareMassaction()
+		{
+			$this->setMassactionIdField('id');
+			$this->getMassactionBlock()->setFormFieldName('ids');
+			$this->getMassactionBlock()->setUseSelectAll(true);
+			$this->getMassactionBlock()->addItem('remove_cprods', array(
+					 'label'=> Mage::helper('customorders')->__('Remove Cprods'),
+					 'url'  => $this->getUrl('*/adminhtml_cprods/massRemove'),
+					 'confirm' => Mage::helper('customorders')->__('Are you sure?')
+				));
+			return $this;
+		}
 		
 
 }

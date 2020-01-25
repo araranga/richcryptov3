@@ -9,6 +9,9 @@ $row3 	= mysqli_fetch_array_cheat(mysql_query_cheat("SELECT SUM(amount) as sum F
 $row4 	= mysqli_fetch_array_cheat(mysql_query_cheat("SELECT SUM(amount) as sum FROM tbl_bonus WHERE accounts_id='$accounts_id'"));
 
 
+$row5	= mysqli_fetch_array_cheat(mysql_query_cheat("SELECT SUM(comission) as sum FROM tbl_corders WHERE referrer='{$_SESSION['username']}' AND status='completed'"));
+
+
 if($row[''])
 
 
@@ -41,18 +44,20 @@ if($row[''])
 			</ul>
 		</div>
 
-	</div>
-	<div class="col col-6">
-		
 		<div class="amount-box total-withdrawals">
 			<h3>Total Withdrawals</h3>
 			<ul class="amount-box-list withdrawals">
 				<li>
 					<i class="icon-dollar"></i>
-					<span><em>Pesos</em> <?php echo number_format($row3['sum'],7); ?></span>
+					<span><em>Pesos</em> <?php echo number_format($row3['sum'],2); ?></span>
 				</li>
 			</ul>
 		</div>
+
+	</div>
+	<div class="col col-6">
+		
+
 
 		<div class="amount-box total-withdrawals">
 			<h3>Total Direct Referrals</h3>
@@ -63,6 +68,18 @@ if($row[''])
 				</li>
 			</ul>
 		</div>
+
+		<div class="amount-box total-withdrawals">
+			<h3>Total Commission Bonus</h3>
+			<ul class="amount-box-list withdrawals">
+				<li>
+					<i class="icon-dollar"></i>
+					<span><em>Pesos</em> <?php echo number_format($row5['sum'],2); ?></span>
+				</li>
+			</ul>
+		</div>
+
+
 
 	</div>
 </div>

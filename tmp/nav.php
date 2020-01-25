@@ -15,7 +15,8 @@
 			<li><a href="index.php?page=withdrawhistory">Withdrawal History</a></li>
 			<li><a href="index.php?page=timeline">My Timeline</a></li>
 			<li><a href="index.php?page=directs">Direct Bonus</a></li>
-			<li><a href="index.php?page=unilevel">Unilevel Bonus</a></li>  
+			<li><a href="index.php?page=unilevel">Unilevel Bonus</a></li>
+			<li><a href="index.php?page=coms">Commission Bonus</a></li>   
 			<li><a href="index.php?page=security">Security</a></li>  
 			<li><a href="index.php?page=rebate">Referrals</a></li>  
 			<li><a href="index.php?page=codeactivate">Code Activate</a></li>  
