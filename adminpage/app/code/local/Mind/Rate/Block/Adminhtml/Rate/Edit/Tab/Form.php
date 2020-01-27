@@ -67,12 +67,12 @@ class Mind_Rate_Block_Adminhtml_Rate_Edit_Tab_Form extends Mage_Adminhtml_Block_
           'values'    => array(
               array(
                   'value'     => 0,
-                  'label'     => Mage::helper('rate')->__('Product'),
+                  'label'     => Mage::helper('rate')->__('Courses'),
               ),
 
               array(
                   'value'     => 1,
-                  'label'     => Mage::helper('rate')->__('Courses'),
+                  'label'     => Mage::helper('rate')->__('Product'),
               ),
           ),
       ));
