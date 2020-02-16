@@ -17,7 +17,7 @@ if($_POST['submit']){
     if($_POST['status']=='completed'){
 
     $startDate = date('Y-m-d');
-    $c1 = date('Y-m-d', strtotime("{$startDate} + 30 weekdays"));
+    $c1 = date('Y-m-d', strtotime("{$startDate} + 15 weekdays"));
 
     $orders->setPayout($c1);
 

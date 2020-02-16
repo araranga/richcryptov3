@@ -149,7 +149,7 @@ $payment['btc'] = $fields;
 	<div class="col-grp">
 		<div class="col col-12">
 			<select id='claimtypeid' name='claimtype' onchange="widraw(this.value)" required>
-				<!-- <option value='bank'>Bank Deposit</option> -->
+				<option value='bank'>Bank Deposit</option>
 				<option value='cheque' selected='selected'>Cheque</option>
 			</select>
 		</div>
