@@ -29,20 +29,20 @@ class Mind_Rate_Block_Adminhtml_Rate_Edit_Tab_Form extends Mage_Adminhtml_Block_
       ));
 
 
-      // $fieldset->addField('days', 'text', array(
-      //     'label'     => Mage::helper('rate')->__('Funding maturity days'),
-      //     'class'     => 'required-entry validate-number',
-      //     'required'  => true,
-      //     'name'      => 'days',
-      // ));
+      $fieldset->addField('cost_block', 'text', array(
+          'label'     => Mage::helper('rate')->__('Amount per entry (Table)'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'cost_block',
+      ));
 
 
-      // $fieldset->addField('cycle1', 'text', array(
-      //     'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 1)'),
-      //     'class'     => 'required-entry validate-number',
-      //     'required'  => true,
-      //     'name'      => 'cycle1',
-      // ));
+      $fieldset->addField('cost_block_end', 'text', array(
+          'label'     => Mage::helper('rate')->__('Amount Bonus when payout. (Table)'),
+          'class'     => 'required-entry validate-number',
+          'required'  => true,
+          'name'      => 'cost_block_end',
+      ));
 
       // $fieldset->addField('cycle2', 'text', array(
       //     'label'     => Mage::helper('rate')->__('Percent of maturity(Cycle 2)'),
@@ -74,6 +74,13 @@ class Mind_Rate_Block_Adminhtml_Rate_Edit_Tab_Form extends Mage_Adminhtml_Block_
                   'value'     => 1,
                   'label'     => Mage::helper('rate')->__('Product'),
               ),
+
+              array(
+                  'value'     => 2,
+                  'label'     => Mage::helper('rate')->__('Table Investment'),
+              ),
+
+
           ),
       ));
 
