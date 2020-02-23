@@ -80,6 +80,7 @@ $monthly = "amount,maturity_date,maturity_amount";
                 ?>
                 <td>
                     <?php
+                    if($row['prod_type']!=2){
                         if ( empty( $row['c'.$x.'status'] ) ) {
 
                             $startDate = date('Y-m-d');
@@ -92,6 +93,11 @@ $monthly = "amount,maturity_date,maturity_amount";
                             echo "Amount : &#8369;".number_format($row['c'.$x.'amount'],2);
                             echo "<br>Status: Completed";
                         }
+
+                    }else{
+
+                        echo "Not applicable.";
+                    }
 
                     ?>
                 </td>

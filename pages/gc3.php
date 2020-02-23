@@ -93,7 +93,12 @@ function pin()
 		$payout_lose = $check_row['cost_block'] * 0.30;
 		$payout_win = $check_row['cost_block_end'];
 
-		$sql = "accounts_id='{$_SESSION['accounts_id']}',username='{$_SESSION['username']}',package='{$check_row['rate_id']}',payout_date='{$payoutmono}',payout_win='{$payout_win}',payout_lose='{$payout_lose}'";
+
+
+
+
+
+
 
 		if(!is_int($divisible)){
 
@@ -105,7 +110,7 @@ function pin()
 		}
 
 
-		$error .= "<i class=\"fa fa-warning\"></i>$sql<br>";
+		//$error .= "<i class=\"fa fa-warning\"></i>$sql<br>";
 
 
 		if($_POST['password']!=$row['password'])
@@ -224,6 +229,19 @@ function pin()
 
 /////
 
+
+for ($x = 1; $x <= $divisible; $x++) {
+	$hash = strtolower(md5($_SESSION['accounts_id'])."-".pin().pin()."-".time());
+	$sql = "INSERT INTO tbl_monoline SET accounts_id='{$_SESSION['accounts_id']}',username='{$_SESSION['username']}',package='{$check_row['rate_id']}',payout_date='{$payoutmono}',payout_win='{$payout_win}',payout_lose='{$payout_lose}',hash='$hash'";
+
+
+			mysql_query_cheat($sql);
+
+			$msg = "Added entry to monoline ({$_SESSION['username']}) hash:$hash";
+			saveLogs($_SESSION['accounts_id'],$msg);
+
+
+}
 
 
 

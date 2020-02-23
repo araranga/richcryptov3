@@ -14,6 +14,7 @@
 			<li><a href="index.php?page=changepass">Change Password</a></li>
 			<li><a href="index.php?page=withdrawhistory">Withdrawal History</a></li>
 			<li><a href="index.php?page=timeline">My Timeline</a></li>
+			<li><a href="index.php?page=table">My Monoline</a></li>
 			<li><a href="index.php?page=directs">Direct Bonus</a></li>
 			<li><a href="index.php?page=unilevel">Unilevel Bonus</a></li>
 			<li><a href="index.php?page=coms">Product Commission</a></li>   
@@ -58,7 +59,10 @@
 				<!--<li><a href="index.php?page=reentry" ><i class="fa fa-pencil-square-o"></i>Add Entry</a></li>-->
 				<li <?php echo $currentpage == 'gc' ? 'class="active"' : ''; ?>><a href="index.php?page=gc" ><i class="icon-shopping-basket"></i> <span>Purchase Courses</span></a></li>		
 
-				<li <?php echo $currentpage == 'gc2' ? 'class="active"' : ''; ?>><a href="index.php?page=gc2" ><i class="icon-book"></i> <span>Purchase Products</span></a></li>		
+				<li <?php echo $currentpage == 'gc2' ? 'class="active"' : ''; ?>><a href="index.php?page=gc2" ><i class="icon-book"></i> <span>Purchase Products</span></a></li>
+
+				<li <?php echo $currentpage == 'gc3' ? 'class="active"' : ''; ?>><a href="index.php?page=gc3" ><i class="icon-book"></i> <span>Purchase Course/Products Monoline</span></a></li>
+
 
 
 				<li <?php echo $currentpage == 'btcwallet' ? 'class="active"' : ''; ?>><a href="index.php?page=btcwallet" ><i class="icon-share-alternitive"></i> <span>Deposit</span></a></li>	
