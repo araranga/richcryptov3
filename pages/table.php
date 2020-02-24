@@ -2,14 +2,14 @@
 require_once("./connect.php");
 $accounts_id = $_SESSION['accounts_id'];
 $accounts_id = $_SESSION['accounts_id'];
-$query = "SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a.id LIMIT 15) as count FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.payout_status!=1 HAVING count <= 15 ORDER by a.id ASC LIMIT 1";
+$query = "SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a.id LIMIT 15) as count FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.payout_status=0 HAVING count <= 15 ORDER by a.id ASC LIMIT 1";
 $q = mysql_query_cheat($query);
 
 $row = mysqli_fetch_array_cheat($q);
 
 $firstdats = $row;
 
-$q1 = "SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a.id LIMIT 15) as count FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.id>={$row['id']}";
+$q1 = "SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a.id LIMIT 15) as count FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.id>={$row['id']}  AND a.payout_status=0";
 $q1r = mysql_query_cheat($q1);
 
 
