@@ -196,29 +196,29 @@ function pin()
 			}
 
 
-			if(!empty(count($getparent))){
+			// if(!empty(count($getparent))){
 				
 
-				$rebatesuni = $check_row['rate_start'] * 0.01;
+			// 	$rebatesuni = $check_row['rate_start'] * 0.01;
 
 
-				foreach($getparent as $id=>$idname){
+			// 	foreach($getparent as $id=>$idname){
 
-				$refersummary = "1% Unilevel Bonus From {$check_row['rate_start']} - {$row['username']}";
-				$q2 = mysql_query_cheat("SELECT * FROM tbl_accounts WHERE username='{$idname}'");
-				$row2 = mysqli_fetch_array_cheat($q2);
-				mysql_query_cheat("INSERT INTO tbl_bonus SET amount='$rebatesuni',accounts_id='{$row2['accounts_id']}',bonus_type='{$row['accounts_id']}',refer_summary='$refersummary',unilevel='{$_SESSION['accounts_id']}'");
-				mysql_query_cheat("UPDATE tbl_accounts SET balance_pesos= balance_pesos + $rebatesuni WHERE accounts_id='{$row2['accounts_id']}'");
-
-
-			$msg = "1% --{$rebatesuni}-- Unilevel bonus given to {$row2['username']} Code is: $code_value-$code_pin";
-			saveLogs($_SESSION['accounts_id'],$msg);
-
-				}
+			// 	$refersummary = "1% Unilevel Bonus From {$check_row['rate_start']} - {$row['username']}";
+			// 	$q2 = mysql_query_cheat("SELECT * FROM tbl_accounts WHERE username='{$idname}'");
+			// 	$row2 = mysqli_fetch_array_cheat($q2);
+			// 	mysql_query_cheat("INSERT INTO tbl_bonus SET amount='$rebatesuni',accounts_id='{$row2['accounts_id']}',bonus_type='{$row['accounts_id']}',refer_summary='$refersummary',unilevel='{$_SESSION['accounts_id']}'");
+			// 	mysql_query_cheat("UPDATE tbl_accounts SET balance_pesos= balance_pesos + $rebatesuni WHERE accounts_id='{$row2['accounts_id']}'");
 
 
+			// $msg = "1% --{$rebatesuni}-- Unilevel bonus given to {$row2['username']} Code is: $code_value-$code_pin";
+			// saveLogs($_SESSION['accounts_id'],$msg);
 
-			}
+			// 	}
+
+
+
+			// }
 
 
 
