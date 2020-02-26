@@ -36,7 +36,8 @@ $q1r = mysql_query_cheat($q1);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d2ff52', endColorstr='#91e842', GradientType=1 );
 }
 
-.win2{
+.win23
+{
 
 background: rgba(241,231,103,1);
 background: -moz-linear-gradient(45deg, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
@@ -47,6 +48,24 @@ background: -ms-linear-gradient(45deg, rgba(241,231,103,1) 0%, rgba(254,182,69,1
 background: linear-gradient(45deg, rgba(241,231,103,1) 0%, rgba(254,182,69,1) 100%);
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1e767', endColorstr='#feb645', GradientType=1 );
 
+
+}
+
+
+.win2{
+
+
+
+background: rgba(255,175,75,1);
+background: -moz-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+background: -webkit-gradient(left top, right top, color-stop(0%, rgba(255,175,75,1)), color-stop(100%, rgba(255,146,10,1)));
+background: -webkit-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+background: -o-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+background: -ms-linear-gradient(left, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+background: linear-gradient(to right, rgba(255,175,75,1) 0%, rgba(255,146,10,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffaf4b', endColorstr='#ff920a', GradientType=1 );
+color:grey;
+font-weight: 700;
 
 }
 
@@ -169,9 +188,8 @@ $qx = mysql_query_cheat("SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a
             <td>
 
                 <strong>Status:<?php echo empty($row['payout_status']) ? 'Ongoing' : 'Done' ?></strong>
-                <br/>
-                <strong>Completion Percentage: <?php echo round(($row['count'] / 15) * 100,2); ?>%</strong>
-                <br/>
+                <hr>
+                <strong>Completion Percentage: <?php echo round(($row['count'] / 15) * 100,2); ?>% <br>  <?php echo (15 - $row['count']); ?> more slots to go.</strong><hr>
                 <strong>Completion Bonus: ₱<?php echo number_format($row['payout_win'],2); ?></strong>
                 <br/>
                 <strong>Every 90 Days Bonus: ₱<?php echo number_format($row['payout_lose'],2); ?></strong>                

@@ -17,7 +17,13 @@ class Mind_Accounts_Block_Adminhtml_Accounts_Edit_Tab_Form extends Mage_Adminhtm
 
   }
 
-
+  function getbypass()
+  {
+    $codes = array();
+    $codes['yes'] = "Yes - Bypass Countdown";
+    $codes['no'] = "No - Dont Bypass";
+    return $codes;
+  }
   function getgender()
   {
     $codes = array();
@@ -138,6 +144,23 @@ $fieldset->addField('refer', 'text', array(
 'required' => true, 
 'name' => 'refer', 
 ));
+
+
+$fieldset->addField('bypass', 'select', array( 
+'label' => Mage::helper('accounts')->__('Bypass Countdown'), 
+'class'     => 'required-entry',
+'required'  => true,
+'name'      => 'bypass',
+'values' => $this->getbypass(),
+));
+
+
+
+
+
+
+
+
 
 
 $fieldset->addField('date_created', 'date',array(

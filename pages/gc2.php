@@ -252,7 +252,7 @@ $colors = array();
 				<p>
 					<span class="minimum"><i>Minimum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_start'],2); ?></strong></span>
 					<span class="maximum" style='color:<?php echo $colors[$col]; ?>'><i>Maximum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
-					<span class="bonus-rate"><i>Exclusive Reward 30% up to 90% per cycle (up to 3 cycles)</i></span>
+					<span class="bonus-rate"><i>Exclusive Reward 30% per cycle (up to 3 cycles)</i></span>
 
 
 				</p>			
