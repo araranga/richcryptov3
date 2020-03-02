@@ -307,7 +307,7 @@ $colors = array();
 				<p>
 					<span class="minimum"><i>Minimum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_start'],2); ?></strong></span>
 					<span class="maximum" style='color:<?php echo $colors[$col]; ?>'><i>Maximum</i> <strong>&#8369;<?php echo number_format($row_packagex['rate_end'],2); ?></strong></span>
-					<span class="bonus-rate"><i>30%(₱<?php echo number_format($row_packagex['cost_block'] * 0.30,2); ?>) Guaranteed Rewards Every 90 business days that had passed without your chart getting 100% completed or get ₱<?php echo number_format($row_packagex['cost_block_end'],2); ?> on payout directly.</i>
+					<span class="bonus-rate"><i>30%(₱<?php echo number_format($row_packagex['cost_block'] * 0.30,2); ?>) Rewards Every 90 business days that had passed without your chart getting 100% completed or get ₱<?php echo number_format($row_packagex['cost_block_end'],2); ?> on payout directly.</i>
 						<br/>
 						Slot Cost: ₱<?php echo number_format($row_packagex['cost_block'],2); ?>
 					</span>

@@ -56,8 +56,36 @@ ini_set("error_log", "php-error.log");
 					if($_GET['page']!='signout'){
 						$_GET['page'] = 'terms';
 					}
+
 					
 				}
+				else
+				{
+
+
+				if($_SESSION['loggedin']){
+
+
+
+					if($_GET['page']=='gc3' && date("Y-m-d")!='2020-03-28'){
+						$_GET['page'] = 'timer';
+					}
+
+					if($_GET['page']=='timer' && $_SESSION['bypass']=='yes')
+					{
+						$_GET['page'] = 'gc3';
+					}
+
+				}
+
+
+
+				}
+
+
+
+
+
 			
 				if( !$_GET['page'] ) {
 					echo "<div class='wrap'>";
