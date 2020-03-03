@@ -61,7 +61,7 @@
 
 				<li <?php echo $currentpage == 'gc2' ? 'class="active"' : ''; ?>><a href="index.php?page=gc2" ><i class="icon-book"></i> <span>Purchase Products</span></a></li>
 
-				<li <?php echo $currentpage == 'gc3' ? 'class="active"' : ''; ?>><a href="index.php?page=gc3" ><i class="icon-book"></i> <span>Purchase Course / Pre-launch</span></a></li>
+				<li <?php echo $currentpage == 'gc3' ? 'class="active"' : ''; ?>><a href="index.php?page=gc3" ><i class="icon-book"></i> <span>Triumphant X3 Pre-launch</span></a></li>
 
 
 
