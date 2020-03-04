@@ -2,14 +2,154 @@
 require_once("./connect.php");
 $accounts_id = $_SESSION['accounts_id'];
 $accounts_id = $_SESSION['accounts_id'];
-$query = "SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a.id LIMIT 15) as count FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.payout_status=0 HAVING count <= 15 ORDER by a.id ASC LIMIT 1";
+
+
+
+define("TABLE","tbl_othertablebeta");
+define("CURTBL",'1');
+
+
+
+
+
+function success200($id)
+{
+
+
+$curtbladded = '1';
+$log  = '';
+            $q1 = mysql_query_cheat("SELECT parent as parentx,curtbl,(SELECT COUNT(child) FROM tbl_othertablebeta WHERE parent=parentx AND curtbl='$curtbladded') AS total FROM tbl_othertablebeta WHERE curtbl = '$curtbladded' AND parent!=0
+            GROUP by parent
+            HAVING total < 2");         
+            $q1row = mysqli_fetch_array_cheat($q1);
+            if($q1row['parentx']=='')
+            {
+                $q2 = mysql_query_cheat("SELECT child FROM tbl_othertablebeta  WHERE curtbl='$curtbladded' AND child NOT IN (SELECT parent FROM tbl_othertablebeta WHERE curtbl='$curtbladded') GROUP by child ORDER BY id ASC LIMIT 0 , 1");           
+                $q2row = mysqli_fetch_array_cheat($q2);
+                if($q2row['child']!='')
+                {
+                    mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='".$q2row['child']."'");                             
+                }
+                else
+                {
+                    $q3 = mysql_query_cheat("SELECT child FROM tbl_othertablebeta WHERE parent=0 AND curtbl='$curtbladded'");                                   
+                    if(mysqli_num_rows($q3)==0)
+                    {
+                    mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='0'");                       
+                    }
+                    else
+                    {
+                    $q3row = mysqli_fetch_array_cheat($q3);
+                    mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='".$q3row['child']."'");                                         
+                    mysql_query_cheat("DELETE FROM tbl_othertablebeta WHERE child='".$q3row['child']."' AND parent='0' AND curtbl='$curtbladded'");
+                    } 
+                }
+            } 
+            else
+            {   
+                mysql_query_cheat("DELETE FROM tbl_othertablebeta WHERE child='".$q1row['parentx']."' AND parent='0' AND curtbl='$curtbladded'");
+                mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='".$q1row['parentx']."'");                       
+            }   
+            
+            #mysql_query_cheat("INSERT INTO tbl_logger SET acc='$id',log='$log'");
+    
+}
+
+
+function breakfree_child_wager($array,$a,$limit)
+{
+
+$level2 = (getchildwagess_dashboard($array[0]));
+$level3a1 = (getchildwagess_dashboard($level2[0]));
+$level3a2 = (getchildwagess_dashboard($level2[1]));
+$level4a1 = (getchildwagess_dashboard($level3a1[0]));
+$level4a2 = (getchildwagess_dashboard($level3a1[1]));
+$level4b1 = (getchildwagess_dashboard($level3a2[0]));
+$level4b2 = (getchildwagess_dashboard($level3a2[1]));   
+$_GET[$a][1] = $array;
+$_GET[$a][2] = $level2;
+$_GET[$a][3] = $level3a1;
+$_GET[$a][4] = $level3a2;
+$_GET[$a][5] = $level4a1;
+$_GET[$a][6] = $level4a2;
+$_GET[$a][7] = $level4b1;
+$_GET[$a][8] = $level4b2;
+
+}   
+
+function getchildwagess_dashboard($id)
+{           
+    $table = "tbl_othertablebeta";
+    $query = "SELECT child FROM $table WHERE parent='$id' ORDER by id ASC";
+    if($_GET['tp']==1)
+    {
+        #echo $query."<br>";
+    }
+    $q = mysql_query_cheat($query);
+    $return =array();
+
+    while($row=mysqli_fetch_array_cheat($q))
+    {
+        $return[] = $row['child'];
+    }   
+
+    return $return;
+    
+}   
+
+function countdownlines_dashboard($array,$data = 1)
+{   
+    $count = 0; 
+    $ids = array();
+    foreach($array as $array2)  
+    {               
+        foreach($array2 as $val)        
+        {           
+            if($val!=0)         
+            {               
+                $ids[] = $val;
+                $count++;           
+            }       
+        }   
+    }   
+    if($data==1){
+        return $count;
+    }else{
+        return implode(",", $ids);
+    }
+    
+}
+
+
+
+$qxmono = mysql_query_cheat("SELECT a.id,(SELECT COUNT(child) FROM tbl_othertablebeta WHERE child=a.id OR parent=a.id) as count FROM tbl_monoline as a HAVING count = 0 ORDER by id ASC");
+
+while($rowmono = mysqli_fetch_array_cheat($qxmono)){
+    success200($rowmono['id']);
+
+}
+
+
+
+
+
+
+
+
+
+$query = "SELECT * FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.payout_status=0 ORDER by a.id ASC LIMIT 1";
 $q = mysql_query_cheat($query);
 
 $row = mysqli_fetch_array_cheat($q);
 
 $firstdats = $row;
 
-$q1 = "SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a.id LIMIT 15) as count FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.id>={$row['id']}  AND a.payout_status=0";
+
+$myid = $row['id'];
+breakfree_child_wager(array($myid),"wager",123123);
+$myarraydata = countdownlines_dashboard($_GET['wager'],2);
+
+$q1 = "SELECT *,(0) as count FROM `tbl_monoline` as a WHERE a.id IN ({$myarraydata})";
 $q1r = mysql_query_cheat($q1);
 
 
@@ -189,7 +329,6 @@ $qx = mysql_query_cheat("SELECT *,(SELECT COUNT(*) FROM tbl_monoline WHERE id>=a
 
                 <strong>Status:<?php echo empty($row['payout_status']) ? 'Ongoing' : 'Done' ?></strong>
                 <hr>
-                <strong>Completion Percentage: <?php echo round(($row['count'] / 15) * 100,2); ?>% <br>  <?php echo (15 - $row['count']); ?> more slots to go.</strong><hr>
                 <strong>Completion Bonus: ₱<?php echo number_format($row['payout_win'],2); ?></strong>
                 <br/>
                 <strong>Every 90 Days Bonus: ₱<?php echo number_format($row['payout_lose'],2); ?></strong>                
