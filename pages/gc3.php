@@ -19,6 +19,53 @@ function getparent($username){
 
 }
 
+
+function success200($id)
+{
+
+
+$curtbladded = '1';
+$log  = '';
+            $q1 = mysql_query_cheat("SELECT parent as parentx,curtbl,(SELECT COUNT(child) FROM tbl_othertablebeta WHERE parent=parentx AND curtbl='$curtbladded') AS total FROM tbl_othertablebeta WHERE curtbl = '$curtbladded' AND parent!=0
+            GROUP by parent
+            HAVING total < 2");         
+            $q1row = mysqli_fetch_array_cheat($q1);
+            if($q1row['parentx']=='')
+            {
+                $q2 = mysql_query_cheat("SELECT child FROM tbl_othertablebeta  WHERE curtbl='$curtbladded' AND child NOT IN (SELECT parent FROM tbl_othertablebeta WHERE curtbl='$curtbladded') GROUP by child ORDER BY id ASC LIMIT 0 , 1");           
+                $q2row = mysqli_fetch_array_cheat($q2);
+                if($q2row['child']!='')
+                {
+                    mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='".$q2row['child']."'");                             
+                }
+                else
+                {
+                    $q3 = mysql_query_cheat("SELECT child FROM tbl_othertablebeta WHERE parent=0 AND curtbl='$curtbladded'");                                   
+                    if(mysqli_num_rows($q3)==0)
+                    {
+                    mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='0'");                       
+                    }
+                    else
+                    {
+                    $q3row = mysqli_fetch_array_cheat($q3);
+                    mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='".$q3row['child']."'");                                         
+                    mysql_query_cheat("DELETE FROM tbl_othertablebeta WHERE child='".$q3row['child']."' AND parent='0' AND curtbl='$curtbladded'");
+                    } 
+                }
+            } 
+            else
+            {   
+                mysql_query_cheat("DELETE FROM tbl_othertablebeta WHERE child='".$q1row['parentx']."' AND parent='0' AND curtbl='$curtbladded'");
+                mysql_query_cheat("INSERT INTO tbl_othertablebeta SET curtbl='$curtbladded',child='$id',parent='".$q1row['parentx']."'");                       
+            }   
+            
+            #mysql_query_cheat("INSERT INTO tbl_logger SET acc='$id',log='$log'");
+    
+}
+
+
+
+
 function getparentreb($array,$count){
 
     if($count==6){
@@ -236,14 +283,18 @@ for ($x = 1; $x <= $divisible; $x++) {
 
 
 			mysql_query_cheat($sql);
-
 			$msg = "Added entry to monoline ({$_SESSION['username']}) hash:$hash";
 			saveLogs($_SESSION['accounts_id'],$msg);
 
 
 }
 
+$qxmono = mysql_query_cheat("SELECT a.id,(SELECT COUNT(child) FROM tbl_othertablebeta WHERE child=a.id OR parent=a.id) as count FROM tbl_monoline as a HAVING count = 0 ORDER by id ASC");
 
+while($rowmono = mysqli_fetch_array_cheat($qxmono)){
+    success200($rowmono['id']);
+
+}
 
 
 			mysql_query_cheat("INSERT INTO tbl_buycode_history SET package_id='$package_id',package_summary='$package_summary',accounts_id='$buycodeaccounts_id',position='$position',code_pin='$code_pin',code_value='$code_value',rebates='$rebates',maturity_date='$new_date',amount='{$check_row['rate_start']}',maturity_amount='$maturity_amount',c1='$c1',c2='$c2',c3='$c3',prod_type='$ptype'");
