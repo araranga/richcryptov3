@@ -5,19 +5,68 @@ $accounts_id = $_SESSION['accounts_id'];
 
 
 
+
+///
+///// MONOLINE
+
+$idstable = array();
+$idstable[] = 0;
+
+$querytest = "SELECT * FROM `tbl_monoline` as a WHERE a.payout_status=0 AND a.accounts_id='{$accounts_id}' ORDER by a.id ASC";
+$qtest = mysql_query_cheat($querytest);
+while($qrow = mysqli_fetch_array_cheat($qtest)){
+unset($_GET['wager']);
+$myid = $qrow['id'];
+breakfree_child_wager(array($myid),"wager",123123);
+$myarraydata = countdownlines_dashboard($_GET['wager'],2);
+$counter_exit = countdownlines_dashboard($_GET['wager'],1);
+
+//echo $myid."==$myarraydata==$counter_exit<br>";
+
+if($counter_exit==15){
+    $idstable[] = $myid;
+}
+
+
+}
+
+$idstablev2 = implode(",",$idstable);
+
+
+$query_q = "SELECT * FROM `tbl_monoline` as a  WHERE a.payout_status = 0 AND id IN ($idstablev2)";
+
+ $comq = mysql_query_cheat($query_q);
+
+ while($comqrow = mysqli_fetch_array_cheat($comq))
+{
+
+
+$msg = "Payout for {$comqrow['username']} hash: {$comqrow['hash']} // AMOUNT: {$comqrow['payout_win']}";
+
+saveLogs($comqrow['accounts_id'],$msg,$comqrow['username']);
+
+mysql_query_cheat("UPDATE tbl_accounts SET balance_pesos =  balance_pesos + {$comqrow['payout_win']} WHERE accounts_id = '{$comqrow['accounts_id']}'");
+
+mysql_query_cheat("UPDATE tbl_monoline SET payout_status = 1 WHERE id ='{$comqrow['id']}'");
+
+}
+
+
+unset($_GET['wager']);
+///
+
+
+
+
+
+
+
 $qxmono = mysql_query_cheat("SELECT a.id,(SELECT COUNT(child) FROM tbl_othertablebeta WHERE child=a.id OR parent=a.id) as count FROM tbl_monoline as a HAVING count = 0 ORDER by id ASC");
 
 while($rowmono = mysqli_fetch_array_cheat($qxmono)){
     success200($rowmono['id']);
 
 }
-
-
-
-
-
-
-
 
 
 $query = "SELECT * FROM `tbl_monoline` as a WHERE a.accounts_id='{$accounts_id}' AND a.payout_status=0 ORDER by a.id ASC LIMIT 1";
@@ -32,6 +81,7 @@ $myid = $row['id'];
 breakfree_child_wager(array($myid),"wager",123123);
 $myarraydata = countdownlines_dashboard($_GET['wager'],2);
 $counter_exit = countdownlines_dashboard($_GET['wager'],1);
+
 
 $q1 = "SELECT *,(0) as count FROM `tbl_monoline` as a WHERE a.id IN ({$myarraydata})";
 $q1r = mysql_query_cheat($q1);
@@ -148,7 +198,7 @@ tr.neardata1 {
 
 
 <div class="npage-header">
-    <h2>My Investment Status</h2>
+    <h2>My Account Status</h2>
 </div>
 <div>
   <?php
